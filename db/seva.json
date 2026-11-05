@@ -1,0 +1,13 @@
+{
+  "meta": { "title": "Seva Through Detailing – Holy Wash Offers | The Detailing Monk", "description": "Devotional offers: 20% off Premium Wash before & after your Holy Wash journey; 33% off for Golden Temple pilgrims." },
+  "banner": { "title": "Seva Through Detailing", "image": "/images/seva/detailing-monk-package-banner.jpg" },
+  "heading": "Seva Through Detailing",
+  "subheading": "Care for the Journey, Purity for the Soul",
+  "image": "/images/seva/seva-through-detailing.jpg",
+  "offers": [
+    { "title": "Holy Wash", "discount": "20% OFF", "on": "On Premium Wash", "when": "Before & After Your Journey" },
+    { "title": "For Golden Temple Pilgrims", "discount": "33% OFF", "on": "On Premium Wash", "when": "Before & After Your Yatra" }
+  ],
+  "footnote": "A “Holy Wash” is a religious outstation trip from Delhi.",
+  "label": "A Devotional Offer from The Detailing Monk"
+}

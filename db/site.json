@@ -1,0 +1,50 @@
+{
+  "name": "The Detailing Monk",
+  "tagline": "Passion • Devotion • Craft",
+  "slogan": "Detailing with Devotion",
+  "ethos": "Seva Through Detailing",
+  "url": "https://www.thedetailingmonk.com",
+  "contact": {
+    "phone": "+91 88269 66825",
+    "phoneHref": "tel:+918826966825",
+    "whatsapp": "918826966825",
+    "whatsappHref": "https://wa.me/918826966825",
+    "email": "monk.detailer@gmail.com",
+    "address": {
+      "line1": "A1/138-139, Pocket 1, Sector 11",
+      "line2": "Rohini, New Delhi - 110085",
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.711500417162!2d77.11237647601908!3d28.728166679730457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d01917b6b89f9%3A0x3f308e5aa14d37ff!2sThe%20Detailing%20Monk!5e0!3m2!1sen!2sin!4v1781776819663!5m2!1sen!2sin"
+    },
+    "hours": "Tuesday to Sunday, 10 AM to 8 PM",
+    "closed": "Monday"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/share/1LtxXigYr5/",
+    "instagram": "https://www.instagram.com/the.detailingmonk",
+    "instagramHandle": "@the.detailingmonk",
+    "youtube": "https://youtube.com/@thedetailingmonk"
+  },
+  "ticker": {
+    "enabled": true,
+    "offers": [
+      { "text": "Holy Wash — 20% off Premium Wash before & after your journey", "href": "/seva-through-detailing" },
+      { "text": "Golden Temple pilgrims — 33% off Premium Wash", "href": "/seva-through-detailing" },
+      { "text": "Ceramic & graphene coating with up to 9 years protection", "href": "/services#paint-restoration" },
+      { "text": "Open Tuesday to Sunday, 10 AM to 8 PM", "href": "/contact-us" }
+    ]
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About Us", "href": "/about-us" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Brands", "href": "/brands" },
+    { "label": "Eco Commitment", "href": "/eco-commitment" },
+    { "label": "Gallery", "href": "/gallery" },
+    { "label": "Contact Us", "href": "/contact-us" }
+  ],
+  "copyright": "© 2026 The Detailing Monk. All rights reserved.",
+  "footerLinks": [
+    { "label": "Seva Through Detailing", "href": "/seva-through-detailing" },
+    { "label": "Sitemap", "href": "/sitemap" }
+  ]
+}

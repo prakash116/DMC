@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Car Detailing Services in Rohini | The Detailing Monk",
+    "description": "Foam wash, interior dry cleaning, compounding & polishing, ceramic and graphene coating, PPF and speciality care in Sector 11, Rohini."
+  },
+  "banner": { "title": "Our Services", "image": "/images/services/detailing-monk-service-banner.jpg" },
+  "intro": {
+    "label": "Our Services",
+    "heading": "At The Detailing Monk",
+    "image": "/images/services/detailing-monk.jpg",
+    "paragraphs": [
+      "At The Detailing Monk, every service is performed with devotion, precision, and craft. From simple washes to advanced ceramic and graphene coatings, we offer complete care for your car — restoring beauty, protecting surfaces, and refreshing interiors.",
+      "Whether it's a Foam Wash, a Premium Holy Wash for sacred journeys, or long-term paint protection packages, each treatment reflects our ethos of “Seva Through Detailing.”",
+      "Explore our full range below and discover why we give you reasons to fall in love with your car again and again."
+    ]
+  },
+  "processes": {
+    "heading": "Understanding Our Processes",
+    "intro": "At The Detailing Monk, every service is more than a wash — it is a carefully designed process.",
+    "items": [
+      { "title": "Basic and Detailed Wash", "image": "/images/services/foam-detailed-washes-serv.jpg", "text": "Gentle yet thorough cleaning using premium shampoos, vacuuming, and tire care to remove dirt without harming paint." },
+      { "title": "Polishing & Restoration", "image": "/images/services/polishing-restoration-serv.jpg", "text": "Multi-stage compounding and polishing to eliminate swirl marks and scratches, revealing a deep mirror finish." },
+      { "title": "Protective Coatings", "image": "/images/services/protective-coatings-serv.jpg", "text": "Ceramic, graphene, and PPF applications that bond with the paint, creating long-term shields against UV rays, oxidation, and contaminants." },
+      { "title": "Interior Care", "image": "/images/services/interior-care-serv.jpg", "text": "Dry-cleaning, steam treatment, and odor removal to refresh cabins and restore hygiene." },
+      { "title": "Special Treatments", "image": "/images/services/special-treatments-serv.jpg", "text": "From engine bay cleaning to alloy wheel coating, each process is performed with precision and devotion." }
+    ]
+  },
+  "tiers": {
+    "label": "Detailing & Protection",
+    "heading": "All Services",
+    "intro": "Wash, restoration and coating packages for every stage of your car's life.",
+    "items": [
+      {
+        "id": "general-care",
+        "tier": "Tier 01",
+        "title": "General Care",
+        "services": [
+          "Foam Wash",
+          "Detailed Wash (Vacuum + Foam/Rinse-less Wash + Tyre Care)",
+          "Detailed Wash with Two-Week Paint Coating",
+          "Ceramic-Coated Car Maintenance Wash (Every 45 days in Summer Months & 60 days in Winter)",
+          "Premium Wash (Cleaning + Restoration + Protection) — Both Interior and Exterior using products of Top Brands",
+          "Holy Wash (Premium wash for Religious Outstation Trips)",
+          "Interior Dry-cleaning",
+          "Machine Waxing",
+          "Engine Bay Cleaning"
+        ]
+      },
+      {
+        "id": "paint-restoration",
+        "tier": "Tier 02",
+        "title": "Paint Restoration & Coatings",
+        "services": [
+          "Compounding + Polishing (Swirl Removal with Mirror Finish)",
+          "Compounding + Polishing with Three Months Protection",
+          "Compounding + Polishing with One Year Protection (Lite Ceramic Coating)",
+          "Compounding + Polishing with Three Years Protection (Ceramic Coating)",
+          "Multi-layered Ceramic Coating with Five to Seven Years Protection",
+          "Graphene Coating with Nine Years Protection",
+          "Ceramic Coating of Alloy Wheels"
+        ]
+      },
+      {
+        "id": "speciality-care",
+        "tier": "Tier 03",
+        "title": "Speciality Care",
+        "services": [
+          "Minor Scratch Removal by hand rubbing",
+          "AC Vents Foam Cleaning (Removes Odor and Kills Bacteria)",
+          "Spot Cleaning of Seats for Stain Removal",
+          "Steam treatment for Cabin Disinfection/Sanitization (Detailed Wash Included)",
+          "Spot Cleaning Using Steam for Tough Stain",
+          "Foul Smell Removal (Caused by AC)",
+          "Smoker's Cabin Full Refreshening (For New Car Smell)",
+          "Deep Cleaning of Wheels with Dressing and Protection",
+          "Black Part Restoration (Multi-stage Treatment)",
+          "Glass Polishing",
+          "Headlight Glass Restoration"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "text": "Experience detailing that restores beauty, protects surfaces, and refreshes interiors with devotion, precision, and craft.",
+    "label": "Book Your Service",
+    "href": "/contact-us"
+  }
+}

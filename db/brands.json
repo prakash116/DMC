@@ -1,0 +1,30 @@
+{
+  "meta": { "title": "Brands We Use | The Detailing Monk", "description": "Premium car care brands used at The Detailing Monk, Rohini: 3M, Meguiar's, CarPro, Koch-Chemie, Menzerna, Garware PPF and more." },
+  "banner": { "title": "Brands We Use", "image": "/images/brands/detailing-monk-brand-banner.jpg" },
+  "logos": [
+    { "name": "Bosch", "file": "bosch" },
+    { "name": "Karcher", "file": "karcher" },
+    { "name": "3M", "file": "3m" },
+    { "name": "Meguiars", "file": "meguiars" },
+    { "name": "Turtle Wax", "file": "turtle-wax" },
+    { "name": "Chemical Guys", "file": "chemical-guys" },
+    { "name": "Carpro", "file": "carpro" },
+    { "name": "North Wolf", "file": "north-wolf" },
+    { "name": "Bissell", "file": "bissell" },
+    { "name": "Max Shine", "file": "max-shine" },
+    { "name": "MA-Fra", "file": "ma-fra" },
+    { "name": "KochChemie", "file": "kochchemie" },
+    { "name": "Nexlev", "file": "nexlev" },
+    { "name": "Planet Car Care", "file": "planet-car-care-logo" },
+    { "name": "WaveX", "file": "waveX-logo" },
+    { "name": "Softspun", "file": "softspun-logo" },
+    { "name": "Menzerna", "file": "menzerna-logo" },
+    { "name": "Car101", "file": "car101-logo" },
+    { "name": "Garware Hitech Films", "file": "garware-hitech-films-logo" },
+    { "name": "Cosmo Films", "file": "cosmo-films-logo" },
+    { "name": "UC Films, South Korea", "file": "uc-films-logo" },
+    { "name": "Ultraguard PPF", "file": "ultraguard-PPF-logo" },
+    { "name": "Carfence PPF", "file": "carfence-PPF-logo" }
+  ],
+  "logoDir": "/images/brands/logos"
+}

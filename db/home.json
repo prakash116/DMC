@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Car Detailing & Ceramic Coating in Rohini, Delhi | The Detailing Monk",
+    "description": "Car detailing studio in Sector 11, Rohini: car wash, interior dry cleaning, rubbing polishing, ceramic coating & PPF. Open Tue–Sun. Book your slot."
+  },
+  "hero": {
+    "badge": ["Clean", "Care", "Protect", "Preserve"],
+    "slideDuration": 8000,
+    "slides": [
+      {
+        "id": "devotion",
+        "title": "Detailing with Devotion",
+        "text": "A studio in Rohini where every car is treated with reverence — washed, restored and protected by hand.",
+        "video": "/videos/video-8.mp4",
+        "poster": "/videos/posters/video-image8.jpg",
+        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825" },
+        "secondary": { "label": "Explore services", "href": "/services" }
+      },
+      {
+        "id": "wash",
+        "title": "Foam that lifts dirt, not paint",
+        "text": "Premium shampoos, rinse-less washes and tyre care — gentle on the finish, hard on grime.",
+        "video": "/videos/video-2.mp4",
+        "poster": "/videos/posters/video-image2.jpg",
+        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825" },
+        "secondary": { "label": "Wash packages", "href": "/services#general-care" }
+      },
+      {
+        "id": "polish",
+        "title": "A mirror finish, revealed",
+        "text": "Multi-stage compounding erases swirls and scratches; ceramic or graphene then locks the shine in for years.",
+        "video": "/videos/video-6.mp4",
+        "poster": "/videos/posters/video-image6.jpg",
+        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825" },
+        "secondary": { "label": "Paint & coatings", "href": "/services#paint-restoration" }
+      },
+      {
+        "id": "interior",
+        "title": "Cabins made new again",
+        "text": "Dry-cleaning, steam sanitisation and odour removal — hygiene you feel the moment you sit in.",
+        "video": "/videos/video-3.mp4",
+        "poster": "/videos/posters/video-image3.jpg",
+        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825" },
+        "secondary": { "label": "Interior care", "href": "/services#speciality-care" }
+      }
+    ]
+  },
+  "featuresIntro": {
+    "heading": "Three ways we care for your car",
+    "text": "Every visit starts with one of these — and each is done by hand, with the patience the work deserves."
+  },
+  "features": [
+    {
+      "icon": "car-detailing",
+      "title": "Detailing Care",
+      "text": "Give your car the care it deserves with premium detailing solutions designed to restore shine, protect paint.",
+      "href": "/services#paint-restoration",
+      "linkLabel": "See detailing packages"
+    },
+    {
+      "icon": "car-wash",
+      "title": "Interior / Deep-cleaning",
+      "text": "Give your car's interior a revival that removes stains, sanitizes upholstery, and restores the dashboard.",
+      "href": "/services#speciality-care",
+      "linkLabel": "See interior care"
+    },
+    {
+      "icon": "car-wax",
+      "title": "Waxing & Sealing",
+      "text": "Protect your car's paint and enhance its shine with premium waxing and sealing solutions.",
+      "href": "/services#general-care",
+      "linkLabel": "See wash & wax options"
+    }
+  ],
+  "about": {
+    "label": "About Us",
+    "heading": "The Detailing Monk",
+    "image": "/images/home/the-detailing-monk-welcome.jpg",
+    "paragraphs": [
+      "Where devotion meets detailing. At our studio, there is a fusion of American innovation and European perfection with Indian heritage — a harmony of technology, precision, and tradition.",
+      "We blend precision, care, and craft to protect and beautify your car. From premium washes to ceramic coatings and PPF, every service reflects our ethos of “Seva Through Detailing.” Your car is more than transport — it is a companion in your journey. That's why we treat every surface with reverence, restoring shine and safeguarding beauty with products from trusted global brands."
+    ],
+    "boxTitle": "A Passionate Beginning",
+    "usps": ["Affordable Pricing", "5 star detailers", "100% Customers Satisfaction"],
+    "stats": [
+      { "value": 100, "suffix": "%", "label": "Customers satisfaction" },
+      { "value": 5, "suffix": "★", "label": "Star detailers" }
+    ],
+    "card": {
+      "big": "Tue – Sun",
+      "sub": "10 AM to 8 PM",
+      "pill": "Monday off",
+      "line": "Sector 11, Rohini, Delhi"
+    },
+    "cta": { "label": "Read More About Us", "href": "/about-us" }
+  },
+  "services": {
+    "heading": "Our Services",
+    "intro": "At The Detailing Monk, every service is a crafted ritual blending precision, care, and devotion to transform your car.",
+    "cards": [
+      {
+        "title": "Exterior Care",
+        "icon": "foam",
+        "image": "/images/home/exterior-care.jpg",
+        "text": "Gentle yet thorough cleaning using premium shampoos, vacuuming, and tire care to remove dirt without harming paint.",
+        "href": "/services#general-care"
+      },
+      {
+        "title": "Interior Care",
+        "icon": "seat",
+        "image": "/images/home/interior-care.jpg",
+        "text": "Drycleaning, steam treatment, and odor removal to refresh cabins and restore hygiene.",
+        "href": "/services#general-care"
+      },
+      {
+        "title": "Detailing Touch",
+        "icon": "polish",
+        "image": "/images/home/detailing-touch.jpg",
+        "text": "Multistage compounding and polishing to eliminate swirl marks and scratches, revealing a deep mirror finish.",
+        "href": "/services#paint-restoration"
+      },
+      {
+        "title": "Paint Care",
+        "icon": "shield",
+        "image": "/images/home/paint-care.jpg",
+        "text": "Ceramic, graphene, and PPF applications that bond with the paint, creating long term shields against UV rays, oxidation, and contaminants.",
+        "href": "/services#paint-restoration"
+      }
+    ],
+    "cta": {
+      "text": "Not sure what your car needs? Send us a photo and we'll suggest the right package.",
+      "label": "Ask on WhatsApp",
+      "href": "https://wa.me/918826966825"
+    }
+  },
+  "brands": {
+    "heading": "Brands We Use",
+    "text": "Shampoos, compounds, coatings and films from the names professional detailers trust worldwide.",
+    "link": { "label": "See all brands", "href": "/brands" }
+  }
+}

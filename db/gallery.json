@@ -1,0 +1,26 @@
+{
+  "meta": { "title": "Gallery | The Detailing Monk", "description": "Photos and videos of car detailing, polishing, foam washing and ceramic coating work at The Detailing Monk, Rohini." },
+  "banner": { "title": "Our Gallery", "image": "/images/gallery/detailing-monk-gallery-banner.jpg" },
+  "images": [
+    { "id": 1, "alt": "Car Detailing Touch", "thumb": "/images/gallery/thumbs/car-detailing-1.jpg", "full": "/images/gallery/large/car-detailing-lrg1.jpg", "w": 1200, "h": 1600 },
+    { "id": 2, "alt": "Car Exterior Care", "thumb": "/images/gallery/thumbs/car-detailing-2.jpg", "full": "/images/gallery/large/car-detailing-lrg2.jpg", "w": 1200, "h": 1600 },
+    { "id": 3, "alt": "Car Interior Care", "thumb": "/images/gallery/thumbs/car-detailing-3.jpg", "full": "/images/gallery/large/car-detailing-lrg3.jpg", "w": 1200, "h": 1600 },
+    { "id": 4, "alt": "Car Interior Care", "thumb": "/images/gallery/thumbs/car-detailing-4.jpg", "full": "/images/gallery/large/car-detailing-lrg4.jpg", "w": 1600, "h": 1200 },
+    { "id": 5, "alt": "Car Interior Care", "thumb": "/images/gallery/thumbs/car-detailing-5.jpg", "full": "/images/gallery/large/car-detailing-lrg5.jpg", "w": 1200, "h": 1600 },
+    { "id": 6, "alt": "Car Interior Care", "thumb": "/images/gallery/thumbs/car-detailing-6.jpg", "full": "/images/gallery/large/car-detailing-lrg6.jpg", "w": 1200, "h": 1600 },
+    { "id": 7, "alt": "Car Polishing", "thumb": "/images/gallery/thumbs/car-detailing-7.jpg", "full": "/images/gallery/large/car-detailing-lrg7.jpg", "w": 1200, "h": 1600 },
+    { "id": 8, "alt": "Car Polishing", "thumb": "/images/gallery/thumbs/car-detailing-8.jpg", "full": "/images/gallery/large/car-detailing-lrg8.jpg", "w": 1200, "h": 1600 },
+    { "id": 9, "alt": "Car Polishing", "thumb": "/images/gallery/thumbs/car-detailing-9.jpg", "full": "/images/gallery/large/car-detailing-lrg9.jpg", "w": 1200, "h": 1600 },
+    { "id": 10, "alt": "Car Foam Washing", "thumb": "/images/gallery/thumbs/car-detailing-10.jpg", "full": "/images/gallery/large/car-detailing-lrg10.jpg", "w": 1600, "h": 1200 }
+  ],
+  "videos": [
+    { "id": 1, "src": "/videos/video-1.mp4", "poster": "/videos/posters/video-image1.jpg" },
+    { "id": 2, "src": "/videos/video-2.mp4", "poster": "/videos/posters/video-image2.jpg" },
+    { "id": 3, "src": "/videos/video-3.mp4", "poster": "/videos/posters/video-image3.jpg" },
+    { "id": 4, "src": "/videos/video-4.mp4", "poster": "/videos/posters/video-image4.jpg" },
+    { "id": 5, "src": "/videos/video-5.mp4", "poster": "/videos/posters/video-image5.jpg" },
+    { "id": 6, "src": "/videos/video-6.mp4", "poster": "/videos/posters/video-image6.jpg" },
+    { "id": 7, "src": "/videos/video-7.mp4", "poster": "/videos/posters/video-image7.jpg" },
+    { "id": 8, "src": "/videos/video-8.mp4", "poster": "/videos/posters/video-image8.jpg" }
+  ]
+}

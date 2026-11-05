@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "About The Detailing Monk – Car Detailing Studio in Rohini",
+    "description": "Meet the team behind The Detailing Monk, a car detailing studio in Sector 11, Rohini, built on passion, devotion and craft."
+  },
+  "banner": {
+    "title": "About Us",
+    "eyebrow": "Passion • Devotion • Craft",
+    "text": "A car detailing studio in Rohini where engineering precision meets spiritual care — every surface treated as an offering.",
+    "image": "/images/about/the-detailing-monk-about-banner.jpg"
+  },
+  "intro": {
+    "label": "About",
+    "heading": "The Detailing Monk",
+    "image": "/images/about/about-us-image.jpg",
+    "paragraphs": [
+      "At The Detailing Monk, every touch begins with Passion — the fire that transforms ordinary work into art. It is sustained by Devotion — a discipline rooted in reverence, where detailing becomes seva, an offering of care.",
+      "And it culminates in Craft — the mastery of technique, precision, and aesthetics that reveals purity beneath the surface.",
+      "Our studio is not merely a place for car care — it is a sanctuary where service meets spirit. We believe that clarity on the surface mirrors clarity within."
+    ],
+    "pillars": [
+      { "word": "Passion", "lead": "every touch begins with", "text": "the fire that transforms ordinary work into art." },
+      { "word": "Devotion", "lead": "it is sustained by", "text": "a discipline rooted in reverence, where detailing becomes seva, an offering of care." },
+      { "word": "Craft", "lead": "and it culminates in", "text": "the mastery of technique, precision, and aesthetics that reveals purity beneath the surface." }
+    ],
+    "closing": "Our studio is not merely a place for car care — it is a sanctuary where service meets spirit. We believe that clarity on the surface mirrors clarity within."
+  },
+  "philosophy": {
+    "label": "Our Philosophy",
+    "heading": "Detailing Is Meditation in Motion",
+    "text": "a practice of patience, precision, and purity. Through our work, we seek to restore not just shine, but serenity. Every service is an act of devotion, guided by the ethos expressed in our founder's spiritual book, God Awaits…",
+    "quote": "Peace cannot be chased, only recognized. Awakening is less about conclusion than about continuity.",
+    "quoteSource": "From God Awaits...",
+    "closing": "This book anchors our philosophy — reminding us that perfection is not achieved, but revealed.",
+    "background": "/images/backgrounds/philosophy-bg.jpg",
+    "virtues": ["Patience", "Precision", "Purity"]
+  },
+  "book": {
+    "label": "Explore The Book",
+    "heading": "Discover God Awaits...",
+    "image": "/images/about/explore-the-book.jpg",
+    "paragraphs": [
+      "Discover God Awaits... — the spiritual foundation behind The Detailing Monk. It is available for seekers and companions in craft through our shop and on Amazon.",
+      "The book guides the ethos of our studio, reminding us that excellence is not only seen in shine, but felt in silence, patience, and devotion."
+    ],
+    "cta": { "label": "Buy on Amazon", "href": "https://www.amazon.in/dp/B0GT447VM1" },
+    "subtitle": "The Manifesto of a Contemporary Seeker",
+    "author": "Vanish Kumar",
+    "note": "Also available at the studio"
+  },
+  "founder": {
+    "label": "The Founder",
+    "name": "Vanish Kumar",
+    "image": "/images/about/founder-img.jpg",
+    "paragraphs": [
+      "Vanish Kumar — Mechanical Engineer, Author of God Awaits..., and Founder of The Detailing Monk.",
+      "He bridges precision and presence: the discipline of engineering, the depth of spiritual inquiry, and the artistry of detailing.",
+      "Through his book and his studio, Vanish offers seekers and car enthusiasts a space where science, spirituality, and craft meet in devotion."
+    ],
+    "roles": ["Mechanical Engineer", "Author of God Awaits…", "Founder, The Detailing Monk"],
+    "pillars": [
+      { "title": "Science", "text": "Precision & discipline", "icon": "gear" },
+      { "title": "Spirit", "text": "Presence & devotion", "icon": "lotus" },
+      { "title": "Craft", "text": "Mastery & beauty", "icon": "hand" }
+    ]
+  }
+}

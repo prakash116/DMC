@@ -1,0 +1,14 @@
+{
+  "meta": { "title": "Eco Commitment | The Detailing Monk", "description": "Water-saving, eco-friendly and responsibly managed car detailing in Rohini, Delhi." },
+  "banner": { "title": "Eco Commitment", "image": "/images/eco/detailing-monk-Commitment-banner.jpg" },
+  "label": "Our Eco Commitment",
+  "heading": "At The Detailing Monk",
+  "image": "/images/services/detailing-monk.jpg",
+  "intro": "We believe that exceptional car care should not come at the expense of the environment. Our commitment is to deliver premium detailing services while minimizing our ecological footprint through responsible practices and sustainable solutions.",
+  "cards": [
+    { "title": "Water Conservation", "text": "We use efficient cleaning techniques and products that help reduce water consumption compared to traditional car washing methods." },
+    { "title": "Eco-Friendly Products", "text": "Wherever possible, we select biodegradable and environmentally responsible cleaning agents that are effective on vehicles while being safer for the environment." },
+    { "title": "Responsible Waste Management", "text": "We follow proper disposal practices for chemicals, packaging materials, and other waste generated during the detailing process to help prevent environmental contamination." },
+    { "title": "Sustainable Operations", "text": "From reducing unnecessary resource consumption to continuously evaluating greener alternatives, we strive to make our operations more sustainable every day." }
+  ]
+}
