@@ -30,12 +30,13 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
     };
   }, [open, onClose]);
 
+  // Plain slide-down: clip-path circle() reveals misrender on several mobile browsers
   const panel = reduce
     ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } }
     : {
-        initial: { clipPath: "circle(0% at calc(100% - 52px) 44px)" },
-        animate: { clipPath: "circle(150% at calc(100% - 52px) 44px)" },
-        exit: { clipPath: "circle(0% at calc(100% - 52px) 44px)" },
+        initial: { opacity: 0, y: -24 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -16 },
       };
 
   return (
@@ -48,13 +49,13 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
           aria-modal="true"
           aria-label="Site navigation"
           {...panel}
-          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-          className="glass-strong fixed inset-0 z-40 flex flex-col rounded-none border-0 text-foreground xl:hidden"
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="glass-strong fixed inset-x-0 top-0 z-40 flex h-dvh flex-col overflow-y-auto rounded-none border-0 text-foreground xl:hidden"
         >
-          {/* spacer equal to header height so links start below the bar */}
-          <div className="h-19 shrink-0" />
+          {/* spacer = ticker (36px) + header bar (76px) so links start below the bar */}
+          <div className="h-28 shrink-0" />
 
-          <nav className="flex flex-1 flex-col justify-center px-7">
+          <nav className="flex flex-1 flex-col justify-start px-7 pt-4 sm:justify-center sm:pt-0">
             <ul className="flex flex-col gap-1">
               {nav.map((item, i) => {
                 const active = pathname === item.href;
@@ -70,7 +71,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
                       href={item.href}
                       onClick={onClose}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex items-baseline gap-4 border-b border-border/70 py-3.5 font-display text-[2rem] leading-none tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
+                      className={`group flex items-baseline gap-4 border-b border-border/70 py-3 font-display text-[1.75rem] leading-none tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:py-3.5 sm:text-[2rem] ${
                         active ? "text-primary" : "text-foreground hover:text-primary"
                       }`}
                     >

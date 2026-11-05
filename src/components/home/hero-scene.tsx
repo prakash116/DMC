@@ -48,32 +48,18 @@ const frag = /* glsl */ `
     float aa = fwidth(d) * 1.2;
     float mask = 1.0 - smoothstep(-aa, aa, d);
 
-    // Soft drop shadow: offset down, burgundy-black, wider + stronger on the active card
-    float ds = roundedBox(p - vec2(0.0, -0.12), size * 0.5, radius);
-    float spread = mix(0.38, 0.22, dim);
-    float shadow = pow(1.0 - smoothstep(-0.02, spread, ds), 1.8) * mix(0.3, 0.12, dim);
-    shadow *= (1.0 - mask);
-
+    // Video shown untouched: no shadow, no veil, no sheen — just the rounded mask and a thin edge
     vec4 tex = texture2D(map, tuv);
-    // inactive cards: keep the image readable, just a gentle latte veil + slight desaturation
-    float lum = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
-    vec3 desat = mix(tex.rgb, vec3(lum), dim * 0.5);
-    vec3 col = mix(desat, vec3(0.718, 0.659, 0.604), dim * 0.35);
+    vec3 col = tex.rgb;
 
-    // glass bezel: a soft inner band that lightens toward the edge, plus a crisp hairline
-    float bezel = 1.0 - smoothstep(0.0, 0.07, abs(d));
-    col = mix(col, vec3(0.93, 0.89, 0.82), bezel * 0.28);
+    // side cards: a very light dim so the active one still reads as "current"
+    col = mix(col, col * 0.88, dim);
+
+    // crisp hairline edge so the card has a border against the background
     float hair = 1.0 - smoothstep(0.0, 0.012, abs(d));
-    col = mix(col, vec3(1.0), hair * 0.6);
-    // top-left light sheen on the active card
-    float sheen = smoothstep(0.2, 0.9, 1.0 - (tuv.x * 0.6 + (1.0 - tuv.y) * 0.4)) * (1.0 - dim);
-    col += sheen * 0.06;
+    col = mix(col, vec3(1.0), hair * 0.5);
 
-    vec3 shadowCol = vec3(0.16, 0.07, 0.09);
-    vec3 outCol = mix(shadowCol, col, mask);
-    float alpha = max(mask, shadow) * opacity;
-
-    gl_FragColor = vec4(outCol, alpha);
+    gl_FragColor = vec4(col, mask * opacity);
     #include <colorspace_fragment>
   }
 `;

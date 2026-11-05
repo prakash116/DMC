@@ -4,11 +4,14 @@ import { useEffect, useRef, useSyncExternalStore } from "react";
 import { CarSvg } from "./car-svg";
 
 const noop = () => () => {};
-// only on devices with a fine pointer (mouse/trackpad); touch keeps the native behaviour
+// only on devices that have a mouse/trackpad AND can hover; some phones report `pointer: fine`
+// (stylus / external-mouse support), so `hover: hover` + a touch-width check guard against that
 const useFinePointer = () =>
   useSyncExternalStore(
     noop,
-    () => window.matchMedia("(pointer: fine)").matches,
+    () =>
+      window.matchMedia("(pointer: fine) and (hover: hover)").matches &&
+      !("ontouchstart" in window && window.innerWidth < 1024),
     () => false,
   );
 
@@ -24,6 +27,12 @@ export function CarCursor() {
 
     let x = -100, y = -100, tx = x, ty = y, lastX = x, dir = 1, raf = 0;
     const onMove = (e: PointerEvent) => {
+      // a touch event means this is really a touch device: hand the cursor back to the OS
+      if (e.pointerType === "touch") {
+        node.style.opacity = "0";
+        document.documentElement.classList.remove("car-cursor");
+        return;
+      }
       tx = e.clientX;
       ty = e.clientY;
       if (tx > lastX + 2) dir = 1;
