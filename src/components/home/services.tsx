@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { LayoutGroup, motion, useReducedMotion, type Variants } from "framer-motion";
+import { LayoutGroup, m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
 
 const { services } = db.home;
@@ -27,7 +27,7 @@ export function Services() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           className="mx-auto max-w-2xl text-center"
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,10 +38,10 @@ export function Services() {
             {services.heading}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{services.intro}</p>
-        </motion.div>
+        </m.div>
 
         <LayoutGroup id="services">
-          <motion.ul
+          <m.ul
             className="mt-12 grid gap-5 sm:mt-16 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4"
             initial="hidden"
             whileInView="show"
@@ -52,7 +52,7 @@ export function Services() {
             {cards.map((c, i) => {
               const isActive = i === active;
               return (
-                <motion.li
+                <m.li
                   key={c.title}
                   variants={item}
                   onMouseEnter={() => setHovered(i)}
@@ -65,7 +65,7 @@ export function Services() {
                 >
                   {/* The burgundy fill slides between cards */}
                   {isActive && (
-                    <motion.span
+                    <m.span
                       layoutId="services-highlight"
                       aria-hidden="true"
                       transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 320, damping: 32 }}
@@ -74,7 +74,7 @@ export function Services() {
                       <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-mocha-cream/15" />
                       <span className="absolute right-6 top-16 h-16 w-16 rounded-full bg-mocha-cream/10" />
                       <span className="absolute -bottom-16 -left-10 h-44 w-44 rounded-full bg-[#1c1214]/25" />
-                    </motion.span>
+                    </m.span>
                   )}
 
                   <div className="flex items-start justify-between">
@@ -113,14 +113,14 @@ export function Services() {
                       <path d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
-                </motion.li>
+                </m.li>
               );
             })}
-          </motion.ul>
+          </m.ul>
         </LayoutGroup>
 
         {/* CTA strip */}
-        <motion.div
+        <m.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
@@ -141,7 +141,7 @@ export function Services() {
           >
             {services.cta.label}
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

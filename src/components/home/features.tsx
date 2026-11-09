@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { m, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { db } from "@/lib/db";
+import { useRichVisuals } from "@/hooks/use-rich-visuals";
 
 const FeaturesBackdrop = dynamic(() => import("./features-backdrop").then((m) => m.FeaturesBackdrop), { ssr: false });
 
@@ -12,12 +13,13 @@ const { features, featuresIntro } = db.home;
 
 export function Features() {
   const reduce = useReducedMotion();
+  const rich = useRichVisuals();
 
   return (
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" aria-labelledby="features-heading">
       {/* Three.js foam bubbles drifting behind the cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <FeaturesBackdrop reducedMotion={!!reduce} />
+        {rich && <FeaturesBackdrop reducedMotion={!!reduce} />}
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
@@ -28,7 +30,7 @@ export function Features() {
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{featuresIntro.text}</p>
         </div>
 
-        <motion.ul
+        <m.ul
           className="mt-12 grid gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
           initial="hidden"
           whileInView="show"
@@ -38,7 +40,7 @@ export function Features() {
           {features.map((f) => (
             <FeatureCard key={f.title} feature={f} reduce={!!reduce} />
           ))}
-        </motion.ul>
+        </m.ul>
       </div>
     </section>
   );
@@ -75,7 +77,7 @@ function FeatureCard({ feature, reduce }: { feature: Feature; reduce: boolean })
   };
 
   return (
-    <motion.li
+    <m.li
       ref={ref}
       variants={{
         hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 28 },
@@ -86,7 +88,7 @@ function FeatureCard({ feature, reduce }: { feature: Feature; reduce: boolean })
       onPointerLeave={onLeave}
       className="glass group relative flex flex-col rounded-3xl p-7 will-change-transform sm:p-8"
     >
-      <motion.span className="pointer-events-none absolute inset-0 rounded-3xl" style={{ background: spot }} aria-hidden="true" />
+      <m.span className="pointer-events-none absolute inset-0 rounded-3xl" style={{ background: spot }} aria-hidden="true" />
 
       <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-deep-burgundy text-mocha-cream shadow-[0_10px_24px_-10px_var(--deep-burgundy)]">
         <span
@@ -112,7 +114,7 @@ function FeatureCard({ feature, reduce }: { feature: Feature; reduce: boolean })
 
       <Link
         href={feature.href}
-        className="relative mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy"
+        className="relative mt-4 inline-flex w-fit items-center gap-2 py-2.5 text-sm font-semibold text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy"
       >
         {feature.linkLabel}
         <svg
@@ -130,6 +132,6 @@ function FeatureCard({ feature, reduce }: { feature: Feature; reduce: boolean })
           <path d="M5 12h14M13 6l6 6-6 6" />
         </svg>
       </Link>
-    </motion.li>
+    </m.li>
   );
 }

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutGroup, motion, useReducedMotion } from "framer-motion";
+import { LayoutGroup, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
@@ -60,7 +60,7 @@ export function Header() {
                       >
                         {item.label}
                         {showLine && (
-                          <motion.span
+                          <m.span
                             layoutId="nav-underline"
                             aria-hidden="true"
                             className="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-primary"

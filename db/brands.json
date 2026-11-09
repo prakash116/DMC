@@ -1,30 +1,147 @@
 {
-  "meta": { "title": "Brands We Use | The Detailing Monk", "description": "Premium car care brands used at The Detailing Monk, Rohini: 3M, Meguiar's, CarPro, Koch-Chemie, Menzerna, Garware PPF and more." },
-  "banner": { "title": "Brands We Use", "image": "/images/brands/detailing-monk-brand-banner.jpg" },
+  "meta": {
+    "title": "Brands We Use | The Detailing Monk",
+    "description": "Premium car care brands used at The Detailing Monk, Rohini: 3M, Meguiar's, CarPro, Koch-Chemie, Menzerna, Garware PPF and more."
+  },
+  "banner": {
+    "title": "Brands We Use",
+    "image": "/images/brands/detailing-monk-brand-banner.jpg"
+  },
+  "intro": {
+    "label": "Where devotion meets detailing",
+    "quote": "At our studio, there is a fusion of American innovation and European perfection with Indian heritage — a harmony of technology, precision, and tradition.",
+    "text": "Your car is more than transport — it is a companion in your journey. That’s why we treat every surface with reverence, restoring shine and safeguarding beauty with products from trusted global brands."
+  },
+  "groups": [
+    {
+      "id": "all",
+      "label": "All brands"
+    },
+    {
+      "id": "care",
+      "label": "Detailing care & equipment"
+    },
+    {
+      "id": "films",
+      "label": "Paint protection films"
+    }
+  ],
   "logos": [
-    { "name": "Bosch", "file": "bosch" },
-    { "name": "Karcher", "file": "karcher" },
-    { "name": "3M", "file": "3m" },
-    { "name": "Meguiars", "file": "meguiars" },
-    { "name": "Turtle Wax", "file": "turtle-wax" },
-    { "name": "Chemical Guys", "file": "chemical-guys" },
-    { "name": "Carpro", "file": "carpro" },
-    { "name": "North Wolf", "file": "north-wolf" },
-    { "name": "Bissell", "file": "bissell" },
-    { "name": "Max Shine", "file": "max-shine" },
-    { "name": "MA-Fra", "file": "ma-fra" },
-    { "name": "KochChemie", "file": "kochchemie" },
-    { "name": "Nexlev", "file": "nexlev" },
-    { "name": "Planet Car Care", "file": "planet-car-care-logo" },
-    { "name": "WaveX", "file": "waveX-logo" },
-    { "name": "Softspun", "file": "softspun-logo" },
-    { "name": "Menzerna", "file": "menzerna-logo" },
-    { "name": "Car101", "file": "car101-logo" },
-    { "name": "Garware Hitech Films", "file": "garware-hitech-films-logo" },
-    { "name": "Cosmo Films", "file": "cosmo-films-logo" },
-    { "name": "UC Films, South Korea", "file": "uc-films-logo" },
-    { "name": "Ultraguard PPF", "file": "ultraguard-PPF-logo" },
-    { "name": "Carfence PPF", "file": "carfence-PPF-logo" }
+    {
+      "name": "Bosch",
+      "file": "bosch",
+      "group": "care"
+    },
+    {
+      "name": "Karcher",
+      "file": "karcher",
+      "group": "care"
+    },
+    {
+      "name": "3M",
+      "file": "3m",
+      "group": "care"
+    },
+    {
+      "name": "Meguiars",
+      "file": "meguiars",
+      "group": "care"
+    },
+    {
+      "name": "Turtle Wax",
+      "file": "turtle-wax",
+      "group": "care"
+    },
+    {
+      "name": "Chemical Guys",
+      "file": "chemical-guys",
+      "group": "care"
+    },
+    {
+      "name": "Carpro",
+      "file": "carpro",
+      "group": "care"
+    },
+    {
+      "name": "North Wolf",
+      "file": "north-wolf",
+      "group": "care"
+    },
+    {
+      "name": "Bissell",
+      "file": "bissell",
+      "group": "care"
+    },
+    {
+      "name": "Max Shine",
+      "file": "max-shine",
+      "group": "care"
+    },
+    {
+      "name": "MA-Fra",
+      "file": "ma-fra",
+      "group": "care"
+    },
+    {
+      "name": "KochChemie",
+      "file": "kochchemie",
+      "group": "care"
+    },
+    {
+      "name": "Nexlev",
+      "file": "nexlev",
+      "group": "care"
+    },
+    {
+      "name": "Planet Car Care",
+      "file": "planet-car-care-logo",
+      "group": "care"
+    },
+    {
+      "name": "WaveX",
+      "file": "waveX-logo",
+      "group": "care"
+    },
+    {
+      "name": "Softspun",
+      "file": "softspun-logo",
+      "group": "care"
+    },
+    {
+      "name": "Menzerna",
+      "file": "menzerna-logo",
+      "group": "care"
+    },
+    {
+      "name": "Car101",
+      "file": "car101-logo",
+      "group": "care"
+    },
+    {
+      "name": "Garware Hitech Films",
+      "file": "garware-hitech-films-logo",
+      "group": "films"
+    },
+    {
+      "name": "Cosmo Films",
+      "file": "cosmo-films-logo",
+      "group": "films"
+    },
+    {
+      "name": "UC Films, South Korea",
+      "file": "uc-films-logo",
+      "group": "films"
+    },
+    {
+      "name": "Ultraguard PPF",
+      "file": "ultraguard-PPF-logo",
+      "group": "films"
+    },
+    {
+      "name": "Carfence PPF",
+      "file": "carfence-PPF-logo",
+      "group": "films"
+    }
   ],
   "logoDir": "/images/brands/logos"
 }

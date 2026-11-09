@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
 
 const { founder } = db.about;
@@ -19,7 +19,7 @@ export function Founder() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20 lg:px-8">
         {/* Portrait in an arch with a drawn halo ring */}
-        <motion.div
+        <m.div
           className="relative mx-auto w-65 sm:w-75 lg:w-85"
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export function Founder() {
           transition={{ duration: 0.8, ease: EASE }}
         >
           <svg viewBox="0 0 100 100" className="pointer-events-none absolute -inset-[14%] h-[128%] w-[128%]" aria-hidden="true">
-            <motion.circle
+            <m.circle
               cx="50"
               cy="46"
               r="46"
@@ -40,7 +40,7 @@ export function Founder() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1.5, delay: 0.3, ease: EASE }}
             />
-            <motion.circle
+            <m.circle
               cx="50"
               cy="46"
               r="41"
@@ -65,42 +65,42 @@ export function Founder() {
             <p className="font-display text-xl font-semibold leading-none text-foreground">{founder.name}</p>
             <p className="mt-1.5 text-[11px] font-semibold tracking-[0.16em] text-deep-burgundy">{founder.label.toUpperCase()}</p>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Bio */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
           variants={{ show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } } }}
           className="text-center lg:text-left"
         >
-          <motion.p variants={fade(reduce)} className="font-display text-lg italic text-deep-burgundy">
+          <m.p variants={fade(reduce)} className="font-display text-lg italic text-deep-burgundy">
             {founder.label}
-          </motion.p>
-          <motion.h2 id="founder-heading" variants={fade(reduce)} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl">
+          </m.p>
+          <m.h2 id="founder-heading" variants={fade(reduce)} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl">
             {founder.name}
-          </motion.h2>
+          </m.h2>
 
           {/* roles as a chip row */}
-          <motion.ul variants={fade(reduce)} className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start" aria-label="Roles">
+          <m.ul variants={fade(reduce)} className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start" aria-label="Roles">
             {founder.roles.map((r) => (
               <li key={r} className="rounded-full border border-deep-burgundy/30 bg-background/70 px-3.5 py-1.5 text-xs font-semibold text-deep-burgundy">
                 {r}
               </li>
             ))}
-          </motion.ul>
+          </m.ul>
 
           {founder.paragraphs.slice(1).map((p) => (
-            <motion.p key={p.slice(0, 20)} variants={fade(reduce)} className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:text-base lg:mx-0">
+            <m.p key={p.slice(0, 20)} variants={fade(reduce)} className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:text-base lg:mx-0">
               {p}
-            </motion.p>
+            </m.p>
           ))}
 
           {/* Science / Spirit / Craft */}
-          <motion.ul variants={fade(reduce)} className="mt-9 grid gap-3 sm:grid-cols-3">
+          <m.ul variants={fade(reduce)} className="mt-9 grid gap-3 sm:grid-cols-3">
             {founder.pillars.map((p, i) => (
-              <motion.li
+              <m.li
                 key={p.title}
                 initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -113,10 +113,10 @@ export function Founder() {
                 </span>
                 <p className="mt-4 font-display text-2xl font-semibold leading-none text-foreground">{p.title}</p>
                 <p className="mt-1.5 text-sm text-muted">{p.text}</p>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ul>
-        </motion.div>
+          </m.ul>
+        </m.div>
       </div>
     </section>
   );

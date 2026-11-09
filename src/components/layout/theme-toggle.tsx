@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 
 const noop = () => () => {};
 // true on the client after hydration, false during SSR — avoids a theme-icon mismatch
@@ -24,7 +24,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       className={`glass relative grid h-10 w-10 place-items-center rounded-full text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`}
     >
       <AnimatePresence mode="wait" initial={false}>
-        <motion.span
+        <m.span
           key={isDark ? "moon" : "sun"}
           initial={reduce ? { opacity: 0 } : { rotate: -90, scale: 0.4, opacity: 0 }}
           animate={{ rotate: 0, scale: 1, opacity: 1 }}
@@ -33,7 +33,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           className="grid place-items-center"
         >
           {isDark ? <MoonIcon /> : <SunIcon />}
-        </motion.span>
+        </m.span>
       </AnimatePresence>
     </button>
   );

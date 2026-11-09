@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
+import { useRichVisuals } from "@/hooks/use-rich-visuals";
 
-const FooterGeometry = dynamic(() => import("./footer-geometry").then((m) => m.FooterGeometry), { ssr: false });
+const FooterCar = dynamic(() => import("./footer-car").then((m) => m.FooterCar), { ssr: false });
 
 const { name, tagline, ethos, contact, social, nav, footerLinks, copyright } = db.site;
 const quickLinks = [...nav, ...footerLinks];
@@ -14,37 +15,39 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Footer() {
   const reduce = useReducedMotion();
+  const rich = useRichVisuals();
   const fade: Variants = {
     hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 18 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
   };
 
   return (
-    <footer className="relative overflow-hidden bg-mocha-cream/60 text-foreground" aria-labelledby="footer-heading">
-      {/* Geometric backdrop */}
+    <footer className="relative overflow-hidden bg-mocha-cream/60 text-foreground dark:bg-surface" aria-labelledby="footer-heading">
+      {/* 3D blueprint car backdrop */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <FooterGeometry reducedMotion={!!reduce} />
-        <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-background to-transparent" />
+        {rich && <FooterCar reducedMotion={!!reduce} />}
+        <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-mocha-cream/70 to-transparent dark:from-background/80" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-24 sm:px-6 sm:pt-28 lg:px-8">
         {/* CTA band */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="flex flex-col items-start gap-6 border-b border-foreground/10 pb-12 sm:pb-14 lg:flex-row lg:items-end lg:justify-between"
+          className="flex flex-col items-start gap-6 pb-2 lg:flex-row lg:items-end lg:justify-between"
         >
           <div className="max-w-2xl">
-            <motion.p variants={fade} className="font-display text-lg italic text-deep-burgundy">
+            <m.p variants={fade} className="font-display text-lg italic text-primary">
               {ethos}
-            </motion.p>
-            <motion.h2 id="footer-heading" variants={fade} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
+            </m.p>
+            <m.h2 id="footer-heading" variants={fade} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
               Give your car the care it deserves.
-            </motion.h2>
+            </m.h2>
           </div>
-          <motion.div variants={fade} className="flex flex-wrap gap-3">
+          <m.div variants={fade} className="flex flex-wrap gap-3">
             <a
               href={contact.whatsappHref}
               target="_blank"
@@ -59,24 +62,24 @@ export function Footer() {
             >
               Call {contact.phone}
             </a>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Columns */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="grid gap-10 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-[1.3fr_1fr_1fr]"
+          className="glass-strong my-10 grid gap-10 rounded-3xl px-6 py-9 sm:my-12 sm:grid-cols-2 sm:px-9 sm:py-11 lg:grid-cols-[1.3fr_1fr_1.1fr] lg:gap-12 lg:px-12"
         >
           {/* Brand */}
-          <motion.div variants={fade}>
+          <m.div variants={fade}>
             <Link href="/" className="inline-flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy">
               <Image src="/logo/logo-light.png" alt="" width={96} height={50} className="h-12 w-auto" />
               <span className="flex flex-col leading-none">
                 <span className="font-display text-xl font-semibold text-foreground">{name}</span>
-                <span className="mt-1 text-[10px] tracking-[0.18em] text-muted">{tagline}</span>
+                <span className="mt-1 text-[11px] tracking-[0.16em] text-muted">{tagline}</span>
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
@@ -94,17 +97,17 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="glass grid h-10 w-10 place-items-center rounded-full text-deep-burgundy transition-[color,transform] duration-300 hover:-translate-y-0.5 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
+                    className="glass grid h-10 w-10 place-items-center rounded-full text-primary transition-[color,transform] duration-300 hover:-translate-y-0.5 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
                   >
                     {s.icon}
                   </a>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* Contact */}
-          <motion.div variants={fade}>
+          <m.div variants={fade}>
             <h3 className="font-display text-xl font-semibold text-foreground">Contact</h3>
             <ul className="mt-5 space-y-3.5 text-sm">
               <li>
@@ -125,26 +128,26 @@ export function Footer() {
                   <span><span className="block text-xs text-muted">Email us</span>{contact.email}</span>
                 </a>
               </li>
-              <li className="inline-flex items-start gap-3 text-foreground/80">
+              <li className="flex items-start gap-3 text-foreground/80">
                 <PinIcon />
                 <span><span className="block text-xs text-muted">Address</span>{contact.address.line1},<br />{contact.address.line2}</span>
               </li>
-              <li className="inline-flex items-start gap-3 text-foreground/80">
+              <li className="flex items-start gap-3 text-foreground/80">
                 <ClockIcon />
                 <span><span className="block text-xs text-muted">Open timing</span>{contact.hours}<br />{contact.closed} is off</span>
               </li>
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* Quick links */}
-          <motion.nav variants={fade} aria-label="Footer">
+          <m.nav variants={fade} aria-label="Footer">
             <h3 className="font-display text-xl font-semibold text-foreground">Quick links</h3>
-            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-1">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="group inline-flex items-center gap-2 text-foreground/80 transition-colors hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy"
+                    className="group inline-flex min-h-10 items-center gap-2 text-foreground/80 transition-colors hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy"
                   >
                     <span className="h-px w-0 bg-deep-burgundy transition-[width] duration-300 group-hover:w-4" aria-hidden="true" />
                     {l.label}
@@ -152,11 +155,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.nav>
-        </motion.div>
+          </m.nav>
+        </m.div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center gap-4 border-t border-foreground/10 pt-7 text-xs text-muted sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-4 pt-2 text-xs text-muted sm:flex-row sm:justify-between">
           <p>{copyright}</p>
           <button
             type="button"
@@ -174,7 +177,7 @@ export function Footer() {
   );
 }
 
-const ic = { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true, className: "mt-0.5 shrink-0 text-deep-burgundy" };
+const ic = { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true, className: "mt-0.5 shrink-0 text-primary" };
 function PhoneIcon() { return <svg {...ic}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.8 2z" /></svg>; }
 function MailIcon() { return <svg {...ic}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>; }
 function PinIcon() { return <svg {...ic}><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>; }

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform, type Variants } from "framer-motion";
+import { m, useMotionValue, useReducedMotion, useSpring, useTransform, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
 
 const { book } = db.about;
@@ -22,30 +22,30 @@ export function ExploreBook() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20 lg:px-8">
         <Book3D reduce={!!reduce} />
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.35 }}
           variants={{ show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } } }}
           className="text-center lg:text-left"
         >
-          <motion.p variants={fade(reduce)} className="font-display text-lg italic text-deep-burgundy">
+          <m.p variants={fade(reduce)} className="font-display text-lg italic text-deep-burgundy">
             {book.label}
-          </motion.p>
-          <motion.h2 id="book-heading" variants={fade(reduce)} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl">
+          </m.p>
+          <m.h2 id="book-heading" variants={fade(reduce)} className="mt-2 font-display text-4xl font-medium leading-[1.08] text-foreground sm:text-5xl">
             {book.heading}
-          </motion.h2>
-          <motion.p variants={fade(reduce)} className="mt-2 text-sm font-medium tracking-[0.08em] text-muted">
+          </m.h2>
+          <m.p variants={fade(reduce)} className="mt-2 text-sm font-medium tracking-[0.08em] text-muted">
             {book.subtitle} · by {book.author}
-          </motion.p>
+          </m.p>
 
           {book.paragraphs.map((p) => (
-            <motion.p key={p.slice(0, 20)} variants={fade(reduce)} className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:text-base lg:mx-0">
+            <m.p key={p.slice(0, 20)} variants={fade(reduce)} className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:text-base lg:mx-0">
               {p}
-            </motion.p>
+            </m.p>
           ))}
 
-          <motion.div variants={fade(reduce)} className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+          <m.div variants={fade(reduce)} className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
             <a
               href={book.cta.href}
               target="_blank"
@@ -64,8 +64,8 @@ export function ExploreBook() {
               </svg>
               {book.note}
             </span>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );
@@ -93,7 +93,7 @@ function Book3D({ reduce }: { reduce: boolean }) {
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
@@ -105,11 +105,11 @@ function Book3D({ reduce }: { reduce: boolean }) {
       style={{ perspective: 1400 }}
     >
       {/* floating idle motion */}
-      <motion.div
+      <m.div
         animate={reduce ? {} : { y: [0, -8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <motion.div style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }} className="relative aspect-680/1000">
+        <m.div style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }} className="relative aspect-680/1000">
           {/* page block (slightly inset, cream) */}
           <div
             className="absolute inset-y-0.75 left-1.5 right-0 rounded-r-md bg-[#f3ead9] shadow-[inset_-6px_0_10px_-6px_rgba(0,0,0,0.25)]"
@@ -133,12 +133,12 @@ function Book3D({ reduce }: { reduce: boolean }) {
             <span className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-linear-to-r from-black/35 to-transparent" aria-hidden="true" />
             <span className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/20 via-transparent to-transparent" aria-hidden="true" />
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       {/* ground shadow */}
       <div className="mx-auto mt-4 h-5 w-3/4 rounded-full bg-[#5a2a10]/25 blur-md" aria-hidden="true" />
-    </motion.div>
+    </m.div>
   );
 }
 

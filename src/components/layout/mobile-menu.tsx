@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -42,7 +42,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           key="mobile-menu"
           id="mobile-menu"
           role="dialog"
@@ -60,7 +60,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               {nav.map((item, i) => {
                 const active = pathname === item.href;
                 return (
-                  <motion.li
+                  <m.li
                     key={item.href}
                     initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -83,13 +83,13 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
                       />
                       {item.label}
                     </Link>
-                  </motion.li>
+                  </m.li>
                 );
               })}
             </ul>
           </nav>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.15 } }}
@@ -113,8 +113,8 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               </a>
               <ThemeToggle />
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

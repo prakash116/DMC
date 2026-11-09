@@ -48,7 +48,7 @@ export function TopTicker() {
         <div className="ml-3 flex shrink-0 items-center gap-1 border-l border-mocha-cream/20 pl-3 sm:ml-4 sm:gap-3 sm:pl-4">
           <a
             href={contact.phoneHref}
-            className="flex items-center gap-1.5 py-2 text-[13px] font-medium transition-colors hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-mocha-cream"
+            className="flex min-w-8 items-center justify-center gap-1.5 py-2 text-[13px] font-medium transition-colors hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-mocha-cream"
             aria-label={`Call ${contact.phone}`}
           >
             <PhoneIcon />
@@ -58,8 +58,8 @@ export function TopTicker() {
             href={social.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 py-2 text-[13px] font-medium transition-colors hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-mocha-cream"
-            aria-label="The Detailing Monk on Instagram"
+            className="flex min-w-8 items-center justify-center gap-1.5 py-2 text-[13px] font-medium transition-colors hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-mocha-cream"
+            aria-label={`Instagram ${social.instagramHandle}`}
           >
             <InstagramIcon />
             <span className="hidden md:inline">{social.instagramHandle}</span>

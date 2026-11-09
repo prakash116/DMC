@@ -3,10 +3,11 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion, type PanInfo } from "framer-motion";
 import { db } from "@/lib/db";
+import { useRichVisuals } from "@/hooks/use-rich-visuals";
+import { HeroMedia } from "./hero-media";
 
-const HeroScene = dynamic(() => import("./hero-scene").then((m) => m.HeroScene), { ssr: false });
 const HeroBackdrop = dynamic(() => import("./hero-backdrop").then((m) => m.HeroBackdrop), { ssr: false });
 
 const { hero } = db.home;
@@ -16,6 +17,7 @@ const SWIPE_PX = 50;
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const rich = useRichVisuals();
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
   const [paused, setPaused] = useState(false);
@@ -62,7 +64,7 @@ export function Hero() {
       {/* Backdrop: shader silk texture, then a soft burgundy glow where the active card sits, fading into the page below */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0">
-          <HeroBackdrop reducedMotion={!!reduce} />
+          {rich && <HeroBackdrop reducedMotion={!!reduce} />}
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_72%_55%,rgba(114,47,55,0.2),transparent_70%)] lg:bg-[radial-gradient(45%_60%_at_74%_50%,rgba(114,47,55,0.24),transparent_70%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-background" />
@@ -81,7 +83,7 @@ export function Hero() {
           </p>
 
           <AnimatePresence mode="wait" custom={dir} initial={false}>
-            <motion.div
+            <m.div
               key={slide.id}
               custom={dir}
               variants={textVariants}
@@ -111,12 +113,12 @@ export function Hero() {
                   {slide.secondary.label}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
-        {/* 3D coverflow */}
-        <motion.div
+        {/* Square stage + circular up-next reel */}
+        <m.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.05}
@@ -124,11 +126,18 @@ export function Hero() {
           onDragEnd={onDragEnd}
           onHoverStart={() => setPaused(true)}
           onHoverEnd={() => setPaused(false)}
-          className="relative h-[46vh] min-h-80 w-full min-w-0 cursor-grab touch-pan-y active:cursor-grabbing sm:h-[52vh] lg:row-start-1 lg:h-[68vh] lg:max-h-160 lg:min-h-125"
-          aria-hidden="true"
+          className="relative w-full min-w-0 cursor-grab touch-pan-y pt-8 active:cursor-grabbing lg:row-start-1 lg:pt-0"
         >
-          <HeroScene slides={slides} active={index} dir={dir} />
-        </motion.div>
+          <HeroMedia
+            slides={slides}
+            active={index}
+            dir={dir}
+            duration={DURATION}
+            paused={paused}
+            reduce={!!reduce}
+            onPick={(i) => go(i, 1)}
+          />
+        </m.div>
 
         {/* Controls */}
         <div className="flex items-center justify-between gap-4 py-6 lg:col-span-2 lg:row-start-2 lg:pb-10 lg:pt-2">
@@ -138,7 +147,7 @@ export function Hero() {
             </span>
             <span className="hidden h-px w-8 bg-[#2b1d1f]/25 sm:block" aria-hidden="true" />
             <AnimatePresence mode="wait" initial={false}>
-              <motion.span
+              <m.span
                 key={slide.id}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,7 +156,7 @@ export function Hero() {
                 className="hidden truncate text-sm font-medium text-[#2b1d1f]/80 sm:block"
               >
                 {slide.title}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
           </div>
           <div className="flex items-center gap-2" role="tablist" aria-label="Choose slide">
@@ -161,19 +170,22 @@ export function Hero() {
                   aria-selected={active}
                   aria-label={`${i + 1}. ${s.title}`}
                   onClick={() => go(i, i > index ? 1 : -1)}
-                  className={`relative h-1.5 overflow-hidden rounded-full bg-[#2b1d1f]/20 transition-[width] duration-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy ${
-                    active ? "w-12" : "w-4 hover:bg-[#2b1d1f]/45"
+                  className={`group relative flex h-6 items-center transition-[width] duration-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy ${
+                    active ? "w-12" : "w-6"
                   }`}
                 >
-                  {active && (
-                    <motion.span
-                      key={`${s.id}-${paused}`}
-                      className="absolute inset-y-0 left-0 rounded-full bg-deep-burgundy"
-                      initial={{ width: "0%" }}
-                      animate={{ width: paused ? undefined : "100%" }}
-                      transition={{ duration: DURATION / 1000, ease: "linear" }}
-                    />
-                  )}
+                  {/* 24px tap target; the visible bar is the thin line inside */}
+                  <span className={`relative block h-1.5 w-full overflow-hidden rounded-full bg-[#2b1d1f]/20 transition-colors ${active ? "" : "group-hover:bg-[#2b1d1f]/45"}`}>
+  {active && (
+                      <m.span
+                        key={`${s.id}-${paused}`}
+                        className="absolute inset-y-0 left-0 rounded-full bg-deep-burgundy"
+                        initial={{ width: "0%" }}
+                        animate={{ width: paused ? undefined : "100%" }}
+                        transition={{ duration: DURATION / 1000, ease: "linear" }}
+                      />
+                    )}
+                  </span>
                 </button>
               );
             })}

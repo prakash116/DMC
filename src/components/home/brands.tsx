@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
 
 const { brands } = db.home;
@@ -18,7 +18,7 @@ export function Brands() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" aria-labelledby="brands-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           className="mx-auto max-w-2xl text-center"
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,11 +29,11 @@ export function Brands() {
             {brands.heading}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{brands.text}</p>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Marquee rows — full-bleed, faded at both edges */}
-      <motion.div
+      <m.div
         className="mt-12 flex flex-col gap-4 sm:mt-16 sm:gap-5 mask-[linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]"
         initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export function Brands() {
             </ul>
           </div>
         ))}
-      </motion.div>
+      </m.div>
 
       <div className="mt-10 text-center sm:mt-12">
         <Link

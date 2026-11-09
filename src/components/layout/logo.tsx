@@ -9,7 +9,6 @@ export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link
       href="/"
-      aria-label="The Detailing Monk — home"
       className="group flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
     >
       <span
@@ -20,25 +19,25 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           src="/logo/logo-light.png"
           alt=""
           fill
-          sizes="96px"
-          priority
+          sizes="160px"
+          loading="eager"
           className="object-contain dark:hidden"
         />
         <Image
           src="/logo/logo-dark.png"
           alt=""
           fill
-          sizes="96px"
+          sizes="160px"
           className="hidden object-contain dark:block"
         />
       </span>
       <span className="flex flex-col leading-none">
         <span
-          className={`whitespace-nowrap font-display font-semibold tracking-wide text-foreground ${compact ? "text-lg" : "text-xl"} transition-[font-size] duration-300`}
+          className={`whitespace-nowrap font-display font-semibold tracking-wide text-foreground max-[359px]:text-base ${compact ? "text-lg" : "text-xl"} transition-[font-size] duration-300`}
         >
           The Detailing Monk
         </span>
-        <span className="mt-1 whitespace-nowrap text-[10px] tracking-[0.18em] text-muted">
+        <span className="mt-1 whitespace-nowrap text-[11px] tracking-[0.16em] text-muted max-[359px]:hidden">
           Passion&nbsp;&nbsp;Devotion&nbsp;&nbsp;Craft
         </span>
       </span>

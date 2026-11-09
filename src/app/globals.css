@@ -124,6 +124,102 @@
   .marquee-track { animation: none; }
 }
 
+/* Intro overlay is server-rendered but only visible when the head script opted in (desktop first visit) */
+html:not(.tdm-intro) .tdm-preloader { display: none !important; }
+.tdm-cover { display: none; }
+html.tdm-intro:not(.tdm-ready) .tdm-cover { display: block; }
+
+/* Page-hero entrance in CSS (no JS needed). Starts at a hair above 0 opacity so the browser still
+   treats the heading as painted for LCP, then rises in. */
+@keyframes hero-rise {
+  from { opacity: 0.01; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise { animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}
+
+/* Polish sheen sweeping across a band (CSS, compositor-only) */
+@keyframes sheen-sweep {
+  0%, 45% { transform: translateX(0) skewX(-18deg); }
+  100% { transform: translateX(450%) skewX(-18deg); }
+}
+.sheen-sweep { animation: sheen-sweep 5.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .sheen-sweep { animation: none; }
+}
+
+/* Hero stage: a light that travels around the square frame */
+@property --halo-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes halo-spin {
+  to { --halo-angle: 360deg; }
+}
+.hero-halo {
+  background: conic-gradient(
+    from var(--halo-angle),
+    transparent 0 62%,
+    rgba(114, 47, 55, 0.6) 80%,
+    #e9a970 90%,
+    transparent 100%
+  );
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .hero-halo { animation: halo-spin 7s linear infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-halo { animation: none; }
+}
+
+/* Brands intro: logos orbit the ring, each counter-spinning to stay upright */
+.brand-orbit { animation: spin 60s linear infinite; }
+.brand-orbit-item { animation: spin 60s linear infinite reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-orbit, .brand-orbit-item { animation: none; }
+}
+
+/* Eco page: foam bubbles rising, wave edge breathing */
+@keyframes eco-rise {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(-50vh) translateX(14px); }
+  100% { transform: translateY(-110vh) translateX(-10px); opacity: 0; }
+}
+.eco-bubble { animation: eco-rise linear infinite; }
+@keyframes eco-ripple {
+  from { transform: scale(1); opacity: 0.6; }
+  to { transform: scale(1.14); opacity: 0; }
+}
+.eco-ripple { opacity: 0; animation: eco-ripple 3.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .eco-ripple { animation: none; }
+}
+@keyframes eco-wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.18); }
+}
+.eco-wave { transform-origin: top; animation: eco-wave 9s ease-in-out infinite; }
+
+/* Car wheels (SVG): spin in place around their own hub */
+@keyframes wheel-spin {
+  to { transform: rotate(360deg); }
+}
+.car-wheel-spin {
+  transform-box: view-box;
+  animation: wheel-spin var(--wheel-speed, 0.45s) linear infinite;
+}
+.car-cursor-el:not(.is-moving) .car-wheel-spin {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .car-wheel-spin { animation: none; }
+}
+
 /* Custom car cursor: hide the native one on fine-pointer devices, keep text I-beam for inputs */
 html.car-cursor,
 html.car-cursor a,
