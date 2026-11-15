@@ -6,6 +6,7 @@ import { AnimatePresence, LayoutGroup, m, useReducedMotion } from "framer-motion
 import { db } from "@/lib/db";
 import { EASE, fade } from "@/components/services/motion";
 import { Lightbox, type LightboxItem } from "./lightbox";
+import { BeforeAfterSection } from "./before-after";
 
 const { images, videos } = db.gallery;
 
@@ -35,8 +36,9 @@ export function Gallery() {
     <LayoutGroup id="gallery">
       {/* quick jump */}
       <div className="mx-auto mt-14 flex max-w-7xl justify-center px-5 sm:px-6 lg:px-8">
-        <nav aria-label="Gallery sections" className="glass-strong flex gap-1 rounded-full p-1.5">
+        <nav aria-label="Gallery sections" className="glass-strong flex flex-wrap justify-center gap-1.5 rounded-full p-1.5">
           {[
+            { href: "#before-after", label: "Before & After", n: 4 },
             { href: "#photos", label: "Image Gallery", n: images.length },
             { href: "#videos", label: "Video Gallery", n: videos.length },
           ].map((l) => (
@@ -51,6 +53,9 @@ export function Gallery() {
           ))}
         </nav>
       </div>
+
+      {/* ---------- Before & After Transformations ---------- */}
+      <BeforeAfterSection />
 
       {/* ---------- Photos ---------- */}
       <section id="photos" className="scroll-mt-28 py-16 sm:py-20" aria-labelledby="photos-heading">

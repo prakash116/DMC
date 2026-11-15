@@ -8,10 +8,9 @@
     "heading": "Get Estimated Quotation",
     "fields": [
       { "name": "name", "label": "Full Name", "type": "text", "required": true },
-      { "name": "email", "label": "Email", "type": "email", "required": true },
-      { "name": "phone", "label": "Phone", "type": "tel", "required": false },
-      { "name": "message", "label": "Description", "type": "textarea", "required": true }
+      { "name": "phone", "label": "Phone Number", "type": "tel", "required": true },
+      { "name": "carModel", "label": "Car Model & Year", "type": "text", "required": true }
     ],
-    "submitLabel": "Submit"
+    "submitLabel": "Book via WhatsApp"
   }
 }

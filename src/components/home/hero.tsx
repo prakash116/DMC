@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatePresence, m, useReducedMotion, type PanInfo } from "framer-motion";
 import { db } from "@/lib/db";
@@ -73,14 +72,21 @@ export function Hero() {
       <div className="relative mx-auto grid min-h-svh w-full max-w-7xl grid-rows-[auto_1fr_auto] px-5 pt-26 sm:px-6 lg:min-h-0 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:grid-rows-[1fr_auto] lg:items-center lg:gap-8 lg:px-8 lg:pt-28">
         {/* Copy */}
         <div className="mx-auto max-w-xl text-center lg:mx-0 lg:row-start-1 lg:text-left">
-          <p className="mb-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium tracking-[0.12em] text-deep-burgundy lg:justify-start">
-            {hero.badge.map((w, i) => (
-              <span key={w} className="flex items-center gap-3 whitespace-nowrap">
-                {w}
-                {i < hero.badge.length - 1 && <span className="h-1 w-1 rounded-full bg-deep-burgundy/60" aria-hidden="true" />}
-              </span>
-            ))}
-          </p>
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-deep-burgundy/25 bg-deep-burgundy/10 px-3 py-1 text-xs font-semibold text-deep-burgundy">
+              <span className="h-2 w-2 rounded-full bg-deep-burgundy animate-pulse" />
+              Studio in Sector 11, Rohini
+            </span>
+            <span className="text-xs font-medium text-[#2b1d1f]/70 hidden sm:inline">|</span>
+            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] font-medium tracking-[0.12em] text-deep-burgundy lg:justify-start">
+              {hero.badge.map((w, i) => (
+                <span key={w} className="flex items-center gap-2 whitespace-nowrap">
+                  {w}
+                  {i < hero.badge.length - 1 && <span className="h-1 w-1 rounded-full bg-deep-burgundy/60" aria-hidden="true" />}
+                </span>
+              ))}
+            </p>
+          </div>
 
           <AnimatePresence mode="wait" custom={dir} initial={false}>
             <m.div
@@ -93,25 +99,32 @@ export function Hero() {
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               aria-live="polite"
             >
-              <h1 className="font-display text-[2.5rem] font-medium leading-[1.05] text-[#2b1d1f] sm:text-6xl lg:text-[4.25rem]">
+              <h1 className="font-display text-[2.4rem] font-medium leading-[1.08] text-[#2b1d1f] sm:text-5xl lg:text-[4rem]">
                 {slide.title}
               </h1>
-              <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-[#2b1d1f]/80 sm:text-lg lg:mx-0">{slide.text}</p>
-              <div className="mt-8 flex flex-nowrap items-center justify-center gap-3 lg:justify-start">
+              <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-[#2b1d1f]/80 sm:text-lg lg:mx-0">{slide.text}</p>
+              <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5 lg:justify-start">
                 <a
                   href={slide.primary.href}
                   target={slide.primary.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="whitespace-nowrap rounded-full bg-deep-burgundy px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_var(--deep-burgundy)] transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy sm:px-6"
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#128c7e] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(18,140,126,0.8)] transition-all hover:-translate-y-0.5 hover:bg-[#075e54] active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c7e]"
                 >
+                  <WhatsAppHeroIcon />
                   {slide.primary.label}
                 </a>
-                <Link
-                  href={slide.secondary.href}
-                  className="whitespace-nowrap rounded-full border border-[#2b1d1f]/25 bg-mocha-cream/50 px-5 py-3 text-sm font-semibold text-[#2b1d1f] backdrop-blur-md transition-colors hover:border-deep-burgundy hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy sm:px-6"
+                <a
+                  href="#booking-section"
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-deep-burgundy px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_var(--deep-burgundy)] transition-all hover:-translate-y-0.5 hover:bg-[#5b232a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
                 >
-                  {slide.secondary.label}
-                </Link>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  Book Now
+                </a>
               </div>
             </m.div>
           </AnimatePresence>
@@ -213,5 +226,13 @@ function ArrowButton({ dir, onClick }: { dir: "prev" | "next"; onClick: () => vo
         {dir === "prev" ? <path d="M15 5l-7 7 7 7" /> : <path d="M9 5l7 7-7 7" />}
       </svg>
     </button>
+  );
+}
+
+function WhatsAppHeroIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" />
+    </svg>
   );
 }

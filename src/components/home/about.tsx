@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { animate, m, useInView, useReducedMotion, type Variants } from "framer-motion";
+import { m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
 
 const { about } = db.home;
@@ -41,15 +40,22 @@ export function About() {
             </m.p>
           ))}
 
-          {/* Ring stats */}
-          <m.ul variants={fade(reduce)} className="mx-auto mt-9 grid max-w-md grid-cols-2 gap-4 lg:mx-0 lg:flex lg:gap-10">
-            {about.stats.map((s) => (
-              <li key={s.label} className="flex items-center gap-3 text-left lg:gap-4">
-                <RingStat value={s.value} suffix={s.suffix} reduce={!!reduce} />
-                <span className="max-w-32 text-sm font-medium leading-snug text-foreground sm:text-[15px]">{s.label}</span>
-              </li>
+          {/* Value Badges */}
+          <m.div variants={fade(reduce)} className="mx-auto mt-8 grid max-w-lg grid-cols-2 gap-3 lg:mx-0">
+            {about.usps.map((usp) => (
+              <div
+                key={usp}
+                className="flex items-center gap-2.5 rounded-xl border border-border/80 bg-surface/80 px-3.5 py-2.5 text-xs font-semibold text-foreground shadow-xs sm:text-[13px]"
+              >
+                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-deep-burgundy/15 text-deep-burgundy">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span>{usp}</span>
+              </div>
             ))}
-          </m.ul>
+          </m.div>
 
           <m.div variants={fade(reduce)} className="mt-9 flex flex-wrap items-center justify-center gap-5 lg:justify-start">
             <Link
@@ -115,46 +121,6 @@ export function About() {
         </m.div>
       </div>
     </section>
-  );
-}
-
-/* Circular progress that draws itself and counts up the first time it scrolls into view */
-function RingStat({ value, suffix, reduce }: { value: number; suffix: string; reduce: boolean }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [n, setN] = useState(reduce ? value : 0);
-  const R = 26;
-  const C = 2 * Math.PI * R;
-  const pct = suffix === "%" ? value / 100 : 1;
-
-  useEffect(() => {
-    if (!inView || reduce) return;
-    const ctrl = animate(0, value, { duration: 1.4, ease: EASE, onUpdate: (v) => setN(Math.round(v)) });
-    return () => ctrl.stop();
-  }, [inView, reduce, value]);
-
-  return (
-    <span ref={ref} className="relative grid h-16 w-16 shrink-0 place-items-center sm:h-18 sm:w-18">
-      <svg viewBox="0 0 64 64" className="absolute inset-0 h-full w-full -rotate-90" aria-hidden="true">
-        <circle cx="32" cy="32" r={R} className="fill-none stroke-cosmic-latte/50" strokeWidth="4" />
-        <m.circle
-          cx="32"
-          cy="32"
-          r={R}
-          className="fill-none stroke-deep-burgundy"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeDasharray={C}
-          initial={{ strokeDashoffset: reduce ? C * (1 - pct) : C }}
-          animate={{ strokeDashoffset: inView ? C * (1 - pct) : C }}
-          transition={{ duration: 1.4, ease: EASE }}
-        />
-      </svg>
-      <span className="font-display text-xl font-semibold text-foreground">
-        {n}
-        {suffix}
-      </span>
-    </span>
   );
 }
 

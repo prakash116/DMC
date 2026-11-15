@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { animate, m, useInView, useMotionValue, useReducedMotion, useTransform } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ScrollWords } from "@/components/ui/scroll-words";
-import { useEffect, useRef } from "react";
 import { db } from "@/lib/db";
 import { fade } from "@/components/services/motion";
 
@@ -43,7 +42,7 @@ export function BrandsIntro() {
           </div>
           <div className="relative text-center">
             <p className="font-display text-8xl font-semibold leading-none text-primary sm:text-9xl">
-              <Counter to={logos.length} />
+              <span className="tabular-nums">{logos.length}</span>
             </p>
             <p className="mt-2 text-sm font-medium tracking-[0.18em] text-foreground/75 uppercase">Brands we use</p>
             <p className="mt-4 text-xs text-foreground/70">
@@ -76,18 +75,4 @@ export function BrandsIntro() {
       </div>
     </section>
   );
-}
-
-function Counter({ to }: { to: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.8 });
-  const reduce = useReducedMotion();
-  const v = useMotionValue(reduce ? to : 0);
-  const text = useTransform(v, (n) => String(Math.round(n)));
-  useEffect(() => {
-    if (!inView || reduce) return;
-    const c = animate(v, to, { duration: 1.4, ease: [0.22, 1, 0.36, 1] });
-    return () => c.stop();
-  }, [inView, reduce, to, v]);
-  return <m.span ref={ref}>{text}</m.span>;
 }

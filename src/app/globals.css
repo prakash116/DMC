@@ -233,7 +233,7 @@ html.car-cursor select {
   cursor: auto;
 }
 
-html {
+html[data-scroll-behavior="smooth"] {
   scroll-behavior: smooth;
 }
 

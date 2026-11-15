@@ -26,15 +26,16 @@ function validate(v: Values) {
 /* No backend: the enquiry is composed into a WhatsApp message (email as a fallback) */
 function compose(v: Values) {
   return [
-    `Hi, I'd like an estimated quotation.`,
-    v.service ? `Service: ${v.service}` : "",
-    `Name: ${v.name}`,
-    `Email: ${v.email}`,
-    v.phone ? `Phone: ${v.phone}` : "",
-    "",
-    v.message,
+    `*Service Enquiry - The Detailing Monk*`,
+    ``,
+    `👤 *Name:* ${v.name || ""}`,
+    `📞 *Phone:* ${v.phone || ""}`,
+    `🚗 *Car Model:* ${v.carModel || ""}`,
+    `✨ *Service Required:* ${v.service || "General Detailing"}`,
+    ``,
+    `Hi, please provide available appointment slots & quotation for my car.`,
   ]
-    .filter((l, i, a) => l !== "" || a[i - 1] !== "")
+    .filter(Boolean)
     .join("\n");
 }
 

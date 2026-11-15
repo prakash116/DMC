@@ -5,6 +5,7 @@ import { MotionProvider } from "@/providers/motion-provider";
 import { Header } from "@/components/layout/header";
 import { TopTicker } from "@/components/layout/top-ticker";
 import { Footer } from "@/components/layout/footer";
+import { FloatingContact } from "@/components/layout/floating-contact";
 import { IntroGate } from "@/components/preloader/intro-gate";
 import "./globals.css";
 import { RICH_QUERY } from "@/lib/rich-query";
@@ -34,10 +35,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${display.variable} ${sans.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: introScript }} />
+        <script dangerouslySetInnerHTML={{ __html: introScript }} suppressHydrationWarning />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
@@ -49,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           {children}
           <Footer />
+          <FloatingContact />
           </MotionProvider>
         </ThemeProvider>
       </body>

@@ -47,18 +47,24 @@ export function Footer() {
               Give your car the care it deserves.
             </m.h2>
           </div>
-          <m.div variants={fade} className="flex flex-wrap gap-3">
+          <m.div variants={fade} className="flex flex-wrap items-center gap-3">
             <a
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-deep-burgundy px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_-10px_var(--deep-burgundy)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
+              className="inline-flex items-center gap-2 rounded-full bg-[#128c7e] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#128c7e]/30 transition-transform hover:-translate-y-0.5 hover:bg-[#0d6e63] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c7e]"
             >
               <WhatsAppIcon /> Book on WhatsApp
             </a>
+            <Link
+              href="/#booking-section"
+              className="inline-flex items-center gap-2 rounded-full bg-deep-burgundy px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_-10px_var(--deep-burgundy)] transition-transform hover:-translate-y-0.5 hover:bg-[#582229] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
+            >
+              Book Now
+            </Link>
             <a
               href={contact.phoneHref}
-              className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
+              className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-burgundy"
             >
               Call {contact.phone}
             </a>
