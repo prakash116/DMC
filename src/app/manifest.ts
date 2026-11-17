@@ -11,13 +11,14 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     scope: "/",
     display: "standalone",
-    orientation: "portrait",
     background_color: "#faf6ef",
     theme_color: "#722f37",
     categories: ["lifestyle", "shopping"],
     icons: [
       { src: "/logo/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
       { src: "/logo/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      // logo inside the 80% safe zone so Android's circle/squircle mask doesn't crop it
+      { src: "/logo/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }

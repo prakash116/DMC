@@ -18,7 +18,7 @@ const BUBBLES = Array.from({ length: 16 }, (_, i) => ({
 export function EcoCommitments() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden bg-[#1f1517] pb-24 pt-32 text-mocha-cream sm:pb-28 sm:pt-40" aria-labelledby="eco-cards-heading">
+    <section className="relative overflow-hidden bg-[#1f1517] pb-16 pt-28 text-mocha-cream sm:pb-28 sm:pt-40" aria-labelledby="eco-cards-heading">
       {/* wave edge from the page into the dark section */}
       <svg className="absolute inset-x-0 top-0 h-20 w-full text-background sm:h-28" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
         <path className={reduce ? "" : "eco-wave"} fill="currentColor" d="M0 0h1440v58c-120 30-240 45-360 32S840 40 720 42 480 92 360 96 120 70 0 52z" />

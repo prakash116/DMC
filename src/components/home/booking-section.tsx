@@ -71,7 +71,7 @@ export function BookingSection() {
   };
 
   return (
-    <section id="booking-section" className="scroll-mt-24 py-20 sm:py-24 lg:py-28 bg-background relative overflow-hidden" aria-labelledby="booking-heading">
+    <section id="booking-section" className="scroll-mt-24 py-14 sm:py-24 lg:py-28 bg-background relative overflow-hidden" aria-labelledby="booking-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 h-120 w-120 rounded-full bg-deep-burgundy/8 blur-3xl" />
         <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-cosmic-latte/20 blur-3xl" />
@@ -123,7 +123,7 @@ export function BookingSection() {
                 href="https://wa.me/918826966825"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#128c7e] hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f7d70] hover:underline"
               >
                 <WhatsAppIcon /> Or chat directly: +91 88269 66825
               </a>
@@ -251,7 +251,7 @@ export function BookingSection() {
                 <div className="mt-7">
                   <button
                     type="submit"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#128c7e] py-3.5 text-sm font-semibold text-white shadow-md shadow-[#128c7e]/30 transition-all hover:bg-[#0d6e63] hover:-translate-y-0.5 active:translate-y-0"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0f7d70] py-3.5 text-sm font-semibold text-white shadow-md shadow-[#0f7d70]/30 transition-all hover:bg-[#0d6e63] hover:-translate-y-0.5 active:translate-y-0"
                   >
                     <WhatsAppIcon />
                     Book Slot via WhatsApp

@@ -22,12 +22,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-mocha-cream/60 text-foreground dark:bg-surface" aria-labelledby="footer-heading">
+    <footer className="relative overflow-hidden bg-mocha-cream/60 text-foreground" aria-labelledby="footer-heading">
       {/* 3D blueprint car backdrop */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         {rich && <FooterCar reducedMotion={!!reduce} />}
         <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-background to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-mocha-cream/70 to-transparent dark:from-background/80" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-mocha-cream/70 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-24 sm:px-6 sm:pt-28 lg:px-8">
@@ -52,7 +52,7 @@ export function Footer() {
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#128c7e] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#128c7e]/30 transition-transform hover:-translate-y-0.5 hover:bg-[#0d6e63] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c7e]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0f7d70] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#0f7d70]/30 transition-transform hover:-translate-y-0.5 hover:bg-[#0d6e63] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f7d70]"
             >
               <WhatsAppIcon /> Book on WhatsApp
             </a>

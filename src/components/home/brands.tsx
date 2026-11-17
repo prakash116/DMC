@@ -16,7 +16,7 @@ export function Brands() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" aria-labelledby="brands-heading">
+    <section className="relative overflow-hidden py-14 sm:py-24 lg:py-28" aria-labelledby="brands-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <m.div
           className="mx-auto max-w-2xl text-center"

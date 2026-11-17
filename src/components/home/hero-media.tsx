@@ -125,7 +125,15 @@ export function HeroMedia({ slides, active, dir, duration, paused, reduce, onPic
   );
 }
 
-/* attach hero videos only after load + idle, and never with data-saver on */
+/*
+ * Attach hero videos lazily, never with data-saver on:
+ * - desktop: after load + idle
+ * - phones/tablets: only after the first touch, scroll or key press. The videos are 2–10 MB each, and
+ *   decoding them during page load competes with first paint on mid-range phones; visitors who bounce
+ *   straight away never pay for them, and the optimized poster stays the LCP image.
+ */
+const INTERACTION_EVENTS = ["pointerdown", "touchstart", "scroll", "keydown"] as const;
+
 function useIdleVideo() {
   const [on, setOn] = useState(false);
   useEffect(() => {
@@ -134,6 +142,13 @@ function useIdleVideo() {
     let idleId = 0;
     let t = 0;
     const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+
+    if (!window.matchMedia("(min-width: 1024px)").matches) {
+      const start = () => setOn(true);
+      INTERACTION_EVENTS.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
+      return () => INTERACTION_EVENTS.forEach((e) => window.removeEventListener(e, start));
+    }
+
     const arm = () => {
       if (w.requestIdleCallback) idleId = w.requestIdleCallback(() => setOn(true), { timeout: 3000 });
       else t = window.setTimeout(() => setOn(true), 1500);

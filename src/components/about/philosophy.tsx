@@ -19,7 +19,7 @@ export function Philosophy() {
   const cardY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [36, -36]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-24 sm:py-28 lg:py-36" aria-labelledby="philosophy-heading">
+    <section ref={ref} className="relative overflow-hidden py-16 sm:py-28 lg:py-36" aria-labelledby="philosophy-heading">
       {/* Ripples */}
       <div className="absolute inset-0" aria-hidden="true">
         {rich && <PhilosophyScene reducedMotion={!!reduce} />}

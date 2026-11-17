@@ -23,7 +23,7 @@ export function BrandsWall() {
   const count = (id: string) => (id === "all" ? logos.length : logos.filter((l) => l.group === id).length);
 
   return (
-    <section id="brand-wall" className="relative scroll-mt-28 bg-surface-muted/50 py-20 sm:py-24 lg:py-28" aria-labelledby="brand-wall-heading">
+    <section id="brand-wall" className="relative scroll-mt-28 bg-surface-muted/50 py-14 sm:py-24 lg:py-28" aria-labelledby="brand-wall-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <h2 id="brand-wall-heading" className="font-display text-4xl font-medium leading-[1.08] sm:text-5xl">

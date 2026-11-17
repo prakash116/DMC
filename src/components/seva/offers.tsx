@@ -12,7 +12,7 @@ const wa = (offer: string) => `${contact.whatsappHref}?text=${encodeURIComponent
 export function SevaOffers() {
   const reduce = useReducedMotion();
   return (
-    <section className="py-20 sm:py-24 lg:py-28" aria-labelledby="seva-heading">
+    <section className="py-14 sm:py-24 lg:py-28" aria-labelledby="seva-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20 lg:px-8">
         <div>
           <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} variants={{ show: { transition: { staggerChildren: 0.08 } } }}>

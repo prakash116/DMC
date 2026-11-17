@@ -14,7 +14,7 @@ export function CustomerReviews() {
   };
 
   return (
-    <section id="customer-reviews" className="relative overflow-hidden bg-surface-muted/40 py-20 sm:py-24 lg:py-28" aria-labelledby="reviews-heading">
+    <section id="customer-reviews" className="relative overflow-hidden bg-surface-muted/40 py-14 sm:py-24 lg:py-28" aria-labelledby="reviews-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-deep-burgundy/5 blur-3xl" />
       </div>
@@ -28,7 +28,7 @@ export function CustomerReviews() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Trust rating badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-semibold text-amber-900 dark:text-amber-200">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-semibold text-amber-900">
             <span className="flex text-amber-500">★★★★★</span>
             <span>4.9 / 5 Rating on Google Reviews · 150+ Reviews</span>
           </div>
@@ -60,7 +60,7 @@ export function CustomerReviews() {
                   <div className="flex text-amber-500 text-sm tracking-wider" aria-label={`${r.stars} stars`}>
                     {"★".repeat(r.stars)}
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>

@@ -57,7 +57,7 @@ export function BeforeAfterSection() {
   const active = COMPARISONS.find((c) => c.id === selectedId) || COMPARISONS[0];
 
   return (
-    <section id="before-after" className="scroll-mt-28 py-16 sm:py-20 lg:py-24" aria-labelledby="before-after-heading">
+    <section id="before-after" className="scroll-mt-28 py-12 sm:py-20 lg:py-24" aria-labelledby="before-after-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-deep-burgundy/25 bg-deep-burgundy/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-deep-burgundy">
@@ -100,13 +100,13 @@ export function BeforeAfterSection() {
         {/* Details & WhatsApp booking CTA */}
         <div className="mt-8 mx-auto max-w-4xl grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-4.5">
-            <span className="inline-block rounded-md bg-red-500/15 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-red-600">
+            <span className="inline-block rounded-md bg-red-500/15 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-red-700">
               Before
             </span>
             <p className="mt-2 text-sm text-foreground/80">{active.beforeDesc}</p>
           </div>
           <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-4.5">
-            <span className="inline-block rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-emerald-600">
+            <span className="inline-block rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-emerald-800">
               After (The Monk Finish)
             </span>
             <p className="mt-2 text-sm text-foreground/80">{active.afterDesc}</p>
@@ -120,7 +120,7 @@ export function BeforeAfterSection() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#128c7e] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#128c7e]/30 transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-full bg-[#0f7d70] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#0f7d70]/30 transition-transform hover:-translate-y-0.5"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" />

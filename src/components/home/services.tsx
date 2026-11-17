@@ -23,7 +23,7 @@ export function Services() {
   };
 
   return (
-    <section id="services" className="relative overflow-hidden bg-mocha-cream/45 py-20 sm:py-24 lg:py-28" aria-labelledby="services-heading">
+    <section id="services" className="relative overflow-hidden bg-mocha-cream/45 py-14 sm:py-24 lg:py-28" aria-labelledby="services-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -left-40 -top-40 h-130 w-130 rounded-full bg-cosmic-latte/35 blur-3xl" />
         <div className="absolute -bottom-48 -right-40 h-140 w-140 rounded-full bg-deep-burgundy/10 blur-3xl" />
@@ -149,7 +149,7 @@ export function Services() {
                     href={waHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#128c7e] py-2.5 text-xs font-semibold text-white shadow-xs transition-colors hover:bg-[#0d6e63]"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0f7d70] py-2.5 text-xs font-semibold text-white shadow-xs transition-colors hover:bg-[#0d6e63]"
                   >
                     <WhatsAppIconSmall />
                     Book on WhatsApp

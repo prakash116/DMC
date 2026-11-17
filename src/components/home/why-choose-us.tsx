@@ -14,7 +14,7 @@ export function WhyChooseUs() {
   };
 
   return (
-    <section id="why-choose-us" className="relative overflow-hidden bg-background py-20 sm:py-24 lg:py-28" aria-labelledby="why-heading">
+    <section id="why-choose-us" className="relative overflow-hidden bg-background py-14 sm:py-24 lg:py-28" aria-labelledby="why-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute right-0 top-1/4 h-96 w-96 rounded-full bg-deep-burgundy/5 blur-3xl" />
         <div className="absolute left-0 bottom-1/4 h-96 w-96 rounded-full bg-cosmic-latte/15 blur-3xl" />

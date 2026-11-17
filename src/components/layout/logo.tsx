@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/* Brand mark: light/dark PNG variants generated from public/logo/brand_logo.png */
+/* Brand mark (light PNG generated from public/logo/brand_logo.png) */
 export function Logo({ compact = false }: { compact?: boolean }) {
   const h = compact ? 32 : 40;
   const w = Math.round(h * (480 / 252)); // source aspect ratio
@@ -16,21 +16,14 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         className="relative shrink-0 transition-[width,height] duration-300 h-8 sm:h-10"
         style={{ width: w, height: h }}
       >
+        {/* decorative: the link's aria-label and the wordmark beside it already name the brand */}
         <Image
           src="/logo/logo-light.png"
-          alt="The Detailing Monk"
+          alt=""
           fill
-          sizes="(max-width: 640px) 68px, 160px"
-          priority
-          className="object-contain dark:hidden"
-        />
-        <Image
-          src="/logo/logo-dark.png"
-          alt="The Detailing Monk"
-          fill
-          sizes="(max-width: 640px) 68px, 160px"
-          priority
-          className="hidden object-contain dark:block"
+          sizes="(max-width: 640px) 68px, 80px"
+          loading="eager"
+          className="object-contain"
         />
       </span>
       <span className="flex flex-col leading-none">

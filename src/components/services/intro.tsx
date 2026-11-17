@@ -22,7 +22,7 @@ export function ServicesIntro() {
   const [p1, p2, p3] = intro.paragraphs;
 
   return (
-    <section id="overview" ref={ref} className="relative scroll-mt-28 overflow-hidden py-20 sm:py-24 lg:py-28" aria-labelledby="services-intro-heading">
+    <section id="overview" ref={ref} className="relative scroll-mt-28 overflow-hidden py-14 sm:py-24 lg:py-28" aria-labelledby="services-intro-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20 lg:px-8">
         {/* Photo */}
         {/* CSS entrance: this photo is the mobile LCP, so it must paint without waiting for JS */}

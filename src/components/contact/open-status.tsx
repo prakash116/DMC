@@ -51,7 +51,7 @@ export function OpenStatus({ className = "" }: { className?: string }) {
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${
-        s.open ? "bg-emerald-600/10 text-emerald-700 dark:text-emerald-400" : "bg-primary/10 text-primary"
+        s.open ? "bg-emerald-600/10 text-emerald-700" : "bg-primary/10 text-primary"
       } ${className}`}
     >
       <span className="relative flex h-2 w-2">

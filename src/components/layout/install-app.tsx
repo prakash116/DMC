@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /*
  * "Install App" button. The site is a PWA (see app/manifest.ts), so it installs like a phone app:
@@ -9,7 +8,7 @@ import { createPortal } from "react-dom";
  *   (`beforeinstallprompt` is captured early by an inline script in app/layout.tsx).
  * - iPhone / iPad: Apple offers no install prompt, so we show the "Share → Add to Home Screen" steps.
  * - Other browsers: show the "browser menu → Install app" steps.
- * Hidden when the site is already running as the installed app.
+ * Hidden when running as the installed app, or once this browser has installed it.
  */
 
 type InstallPromptEvent = Event & {
@@ -25,6 +24,8 @@ declare global {
 }
 
 export const INSTALL_EVENT = "tdm-installprompt";
+/* set by the `appinstalled` handler in app/layout.tsx and below, so a later visit in a browser tab hides the button */
+export const INSTALLED_KEY = "tdm-app-installed";
 
 type Mode = "hidden" | "prompt" | "ios" | "manual";
 
@@ -38,12 +39,22 @@ function subscribe(cb: () => void) {
   };
 }
 
+function installedBefore() {
+  try {
+    return localStorage.getItem(INSTALLED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 function getMode(): Mode {
   const nav = navigator as Navigator & { standalone?: boolean };
   if (window.__tdmInstalled || nav.standalone || window.matchMedia("(display-mode: standalone)").matches) {
     return "hidden";
   }
+  // Chrome only offers the prompt when the app is NOT installed, so a live prompt overrides a stale flag
   if (window.__tdmInstallPrompt) return "prompt";
+  if (installedBefore()) return "hidden";
   const ios =
     /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -57,19 +68,29 @@ type Props = { variant?: "pill" | "block"; className?: string; onDone?: () => vo
 export function InstallApp({ variant = "pill", className = "", onDone }: Props) {
   const mode = useInstallMode();
   const [guide, setGuide] = useState<"ios" | "manual" | null>(null);
-  const closeGuide = useCallback(() => setGuide(null), []);
 
   if (mode === "hidden") return null;
 
   const install = async () => {
     const evt = window.__tdmInstallPrompt;
     if (mode === "prompt" && evt) {
-      await evt.prompt();
-      const { outcome } = await evt.userChoice;
-      window.__tdmInstallPrompt = null; // a prompt event can be used only once
-      if (outcome === "accepted") window.__tdmInstalled = true;
-      window.dispatchEvent(new Event(INSTALL_EVENT));
-      onDone?.();
+      // a prompt event can be used only once: clear it first so a second tap can't call prompt() again
+      window.__tdmInstallPrompt = null;
+      try {
+        await evt.prompt();
+        const { outcome } = await evt.userChoice;
+        if (outcome === "accepted") {
+          window.__tdmInstalled = true;
+          try {
+            localStorage.setItem(INSTALLED_KEY, "1");
+          } catch {}
+        }
+        onDone?.();
+      } catch {
+        setGuide("manual");
+      } finally {
+        window.dispatchEvent(new Event(INSTALL_EVENT));
+      }
       return;
     }
     setGuide(mode === "ios" ? "ios" : "manual");
@@ -100,20 +121,22 @@ export function InstallApp({ variant = "pill", className = "", onDone }: Props) 
         </button>
       )}
 
-      {guide && <InstallGuide kind={guide} onClose={closeGuide} />}
+      {guide && <InstallGuide kind={guide} onClose={() => setGuide(null)} />}
     </>
   );
 }
 
+/*
+ * Native modal <dialog>: renders in the top layer (so the header's backdrop-filter can't trap it),
+ * keeps Tab focus inside, closes on Escape and returns focus to the button that opened it.
+ */
 function InstallGuide({ kind, onClose }: { kind: "ios" | "manual"; onClose: () => void }) {
-  const closeRef = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+    const d = ref.current;
+    if (d && !d.open) d.showModal();
+  }, []);
 
   const steps =
     kind === "ios"
@@ -130,16 +153,18 @@ function InstallGuide({ kind, onClose }: { kind: "ios" | "manual"; onClose: () =
           <>Inside Instagram or Facebook? Open this page in Chrome or Safari first.</>,
         ];
 
-  // portal: the header uses backdrop-filter, which would trap a fixed overlay inside it
-  return createPortal(
-    <div className="fixed inset-0 z-200 flex items-end justify-center bg-black/40 p-4 sm:items-center" onClick={onClose}>
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="install-guide-title"
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-sm rounded-3xl bg-surface p-6 text-foreground shadow-2xl"
-      >
+  return (
+    <dialog
+      ref={ref}
+      aria-labelledby="install-guide-title"
+      onClose={onClose}
+      // Escape: let the dialog close itself without also closing the mobile menu underneath
+      onKeyDown={(e) => e.key === "Escape" && e.stopPropagation()}
+      // a click on the dialog box itself (not its content) is a click on the backdrop
+      onClick={(e) => e.target === e.currentTarget && ref.current?.close()}
+      className="m-auto mb-4 w-[calc(100%-2rem)] max-w-sm rounded-3xl bg-transparent p-0 text-foreground backdrop:bg-black/40 sm:mb-auto"
+    >
+      <div className="rounded-3xl bg-surface p-6 shadow-2xl">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 id="install-guide-title" className="font-display text-2xl leading-tight">
@@ -150,9 +175,8 @@ function InstallGuide({ kind, onClose }: { kind: "ios" | "manual"; onClose: () =
             </p>
           </div>
           <button
-            ref={closeRef}
             type="button"
-            onClick={onClose}
+            onClick={() => ref.current?.close()}
             aria-label="Close"
             className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-muted hover:bg-surface-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-primary"
           >
@@ -173,14 +197,14 @@ function InstallGuide({ kind, onClose }: { kind: "ios" | "manual"; onClose: () =
         </ol>
         <button
           type="button"
-          onClick={onClose}
+          onClick={() => ref.current?.close()}
+          autoFocus
           className="mt-6 w-full rounded-2xl bg-deep-burgundy py-3 text-sm font-semibold text-white active:scale-98 transition-transform"
         >
           Got it
         </button>
       </div>
-    </div>,
-    document.body,
+    </dialog>
   );
 }
 
@@ -195,7 +219,7 @@ function PhoneDownloadIcon() {
 
 function ShareIcon() {
   return (
-    <svg className="inline -mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Share">
+    <svg className="inline -mt-0.5" role="img" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Share icon">
       <path d="M12 3v12M8 7l4-4 4 4" />
       <path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" />
     </svg>

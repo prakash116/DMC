@@ -10,7 +10,7 @@ export function TopTicker() {
   const duration = `${Math.max(24, ticker.offers.length * 9)}s`;
 
   return (
-    <div className="bg-deep-burgundy text-mocha-cream dark:bg-[#4a1e24]">
+    <div className="bg-deep-burgundy text-mocha-cream">
       <div className="mx-auto flex max-w-7xl items-stretch px-3 sm:px-4 lg:px-6">
         {/* Offers marquee */}
         <div
@@ -19,8 +19,8 @@ export function TopTicker() {
           aria-label="Current offers"
         >
           {/* fade edges */}
-          <span className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-linear-to-r from-deep-burgundy to-transparent dark:from-[#4a1e24]" aria-hidden="true" />
-          <span className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-linear-to-l from-deep-burgundy to-transparent dark:from-[#4a1e24]" aria-hidden="true" />
+          <span className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-linear-to-r from-deep-burgundy to-transparent" aria-hidden="true" />
+          <span className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-linear-to-l from-deep-burgundy to-transparent" aria-hidden="true" />
 
           <ul className="ticker-track flex w-max items-center">
             {[0, 1].map((copy) =>

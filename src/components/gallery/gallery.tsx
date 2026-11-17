@@ -58,7 +58,7 @@ export function Gallery() {
       <BeforeAfterSection />
 
       {/* ---------- Photos ---------- */}
-      <section id="photos" className="scroll-mt-28 py-16 sm:py-20" aria-labelledby="photos-heading">
+      <section id="photos" className="scroll-mt-28 py-12 sm:py-20" aria-labelledby="photos-heading">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <m.h2
@@ -133,7 +133,7 @@ export function Gallery() {
       </section>
 
       {/* ---------- Videos ---------- */}
-      <section id="videos" className="scroll-mt-28 bg-[#1f1517] py-20 text-mocha-cream sm:py-24" aria-labelledby="videos-heading">
+      <section id="videos" className="scroll-mt-28 bg-[#1f1517] py-14 text-mocha-cream sm:py-24" aria-labelledby="videos-heading">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <m.h2
@@ -180,7 +180,7 @@ function Tile({ layoutKey, src, alt, sizes, onOpen }: { layoutKey: string; src: 
       style={{ borderRadius: 18 }}
       className="group relative block h-full w-full overflow-hidden bg-cosmic-latte shadow-[0_20px_40px_-26px_rgba(114,47,55,0.6)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary"
     >
-      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110" />
+      <Image src={src} alt="" fill sizes={sizes} className="object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110" />
       <span className="absolute inset-0 bg-linear-to-t from-[#2b1d1f]/75 via-[#2b1d1f]/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" />
       <span className="absolute inset-x-4 bottom-4 flex translate-y-3 items-center justify-between gap-2 text-left text-mocha-cream opacity-0 transition-[opacity,transform] duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
         <span className="font-display text-lg italic leading-tight">{alt}</span>

@@ -11,7 +11,7 @@ export function Founder() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-mocha-cream/45 py-20 sm:py-24 lg:py-32" aria-labelledby="founder-heading">
+    <section className="relative overflow-hidden bg-mocha-cream/45 py-14 sm:py-24 lg:py-32" aria-labelledby="founder-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -left-40 top-1/4 h-130 w-130 rounded-full bg-cosmic-latte/35 blur-3xl" />
         <div className="absolute -right-40 bottom-0 h-130 w-130 rounded-full bg-deep-burgundy/10 blur-3xl" />
@@ -56,7 +56,7 @@ export function Founder() {
           </svg>
 
           <div className="relative aspect-4/5 overflow-hidden rounded-t-full rounded-b-3xl shadow-[0_30px_60px_-28px_rgba(114,47,55,0.5)] ring-4 ring-background">
-            <Image src={founder.image} alt={founder.name} fill sizes="340px" className="object-cover object-top" />
+            <Image src={founder.image} alt={founder.name} fill sizes="(min-width: 1024px) 340px, (min-width: 640px) 300px, 260px" className="object-cover object-top" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-deep-burgundy/45 to-transparent" aria-hidden="true" />
           </div>
 

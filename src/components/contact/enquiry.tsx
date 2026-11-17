@@ -62,7 +62,7 @@ export function Enquiry() {
   const mailto = `mailto:${contact.email}?subject=${encodeURIComponent(form.heading)}&body=${encodeURIComponent(compose(values))}`;
 
   return (
-    <section id="contact-form" className="scroll-mt-28 pb-20 sm:pb-24 lg:pb-28" aria-labelledby="form-heading">
+    <section id="contact-form" className="scroll-mt-28 pb-14 sm:pb-24 lg:pb-28" aria-labelledby="form-heading">
       <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
         {/* form card */}
         <m.div

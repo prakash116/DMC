@@ -21,7 +21,7 @@ const rows: Row[] = [
 export function GetInTouch() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative py-20 sm:py-24 lg:py-28" aria-labelledby="touch-heading">
+    <section className="relative py-14 sm:py-24 lg:py-28" aria-labelledby="touch-heading">
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 lg:px-8">
         {/* left: heading + quick actions */}
         <div className="lg:sticky lg:top-32">

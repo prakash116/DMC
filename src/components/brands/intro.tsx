@@ -14,7 +14,7 @@ export function BrandsIntro() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28" aria-labelledby="brands-intro-heading">
+    <section className="relative overflow-hidden py-14 sm:py-24 lg:py-28" aria-labelledby="brands-intro-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20 lg:px-8">
         {/* count badge */}
         <m.div

@@ -29,7 +29,7 @@ export function FloatingContact() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="group flex items-center gap-2.5 rounded-full bg-[#128c7e] py-3 px-4.5 text-sm font-semibold text-white shadow-xl shadow-[#128c7e]/40 transition-all hover:bg-[#0d6e63] hover:scale-105 active:scale-95"
+          className="group flex items-center gap-2.5 rounded-full bg-[#0f7d70] py-3 px-4.5 text-sm font-semibold text-white shadow-xl shadow-[#0f7d70]/40 transition-all hover:bg-[#0d6e63] hover:scale-105 active:scale-95"
         >
           <span className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
@@ -47,7 +47,7 @@ export function FloatingContact() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl bg-[#128c7e] py-2.5 text-xs font-semibold text-white shadow-sm active:scale-95"
+            className="flex items-center justify-center gap-2 rounded-xl bg-[#0f7d70] py-2.5 text-xs font-semibold text-white shadow-sm active:scale-95"
           >
             <WhatsAppIcon />
             <span>WhatsApp</span>

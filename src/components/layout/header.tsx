@@ -90,7 +90,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
-              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#128c7e] p-2 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all hover:bg-[#0d6e63] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c7e]"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#0f7d70] p-2 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all hover:bg-[#0d6e63] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f7d70]"
             >
               <WhatsAppIcon />
               <span className="hidden sm:inline">WhatsApp</span>

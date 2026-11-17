@@ -108,7 +108,7 @@ export function Hero() {
                   href={slide.primary.href}
                   target={slide.primary.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#128c7e] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(18,140,126,0.8)] transition-all hover:-translate-y-0.5 hover:bg-[#075e54] active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c7e]"
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#0f7d70] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(18,140,126,0.8)] transition-all hover:-translate-y-0.5 hover:bg-[#075e54] active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f7d70]"
                 >
                   <WhatsAppHeroIcon />
                   {slide.primary.label}

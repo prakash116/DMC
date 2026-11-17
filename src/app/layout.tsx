@@ -13,7 +13,7 @@ import { RICH_QUERY } from "@/lib/rich-query";
 const introScript = `try{if(sessionStorage.getItem("tdm-preloader-seen")!=="1"&&matchMedia(${JSON.stringify(RICH_QUERY)}).matches&&!(navigator.connection&&navigator.connection.saveData))document.documentElement.classList.add("tdm-intro")}catch(e){}`;
 
 // capture the browser's install prompt as early as possible (it can fire before React hydrates); see install-app.tsx
-const installScript = `addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__tdmInstallPrompt=e;dispatchEvent(new Event("tdm-installprompt"))});addEventListener("appinstalled",function(){window.__tdmInstallPrompt=null;window.__tdmInstalled=true;dispatchEvent(new Event("tdm-installprompt"))})`;
+const installScript = `addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__tdmInstallPrompt=e;dispatchEvent(new Event("tdm-installprompt"))});addEventListener("appinstalled",function(){window.__tdmInstallPrompt=null;window.__tdmInstalled=true;try{localStorage.setItem("tdm-app-installed","1")}catch(e){}dispatchEvent(new Event("tdm-installprompt"))})`;
 
 const display = Cormorant_Garamond({
   variable: "--font-cormorant",

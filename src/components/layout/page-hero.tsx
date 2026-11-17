@@ -24,7 +24,7 @@ export function PageHero({ title, eyebrow, text, crumbs = [] }: Props) {
   const delay = (i: number) => ({ animationDelay: `${120 + i * 90}ms` });
 
   return (
-    <section className="relative -mt-19 flex min-h-[50svh] items-end overflow-hidden bg-cosmic-latte text-foreground lg:-mt-21" aria-labelledby="page-title">
+    <section className="relative -mt-19 flex items-end md:min-h-[44svh] lg:min-h-[50svh] overflow-hidden bg-cosmic-latte text-foreground lg:-mt-21" aria-labelledby="page-title">
       <div className="absolute inset-0" aria-hidden="true">
         {rich && <PageHeroScene reducedMotion={!!reduce} />}
         {/* soft static backdrop for phones / before the WebGL scene loads */}
@@ -34,7 +34,7 @@ export function PageHero({ title, eyebrow, text, crumbs = [] }: Props) {
         <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent to-background" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-14 pt-35 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20 lg:pt-40">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-8 pt-30 sm:px-6 sm:pb-12 sm:pt-35 lg:px-8 lg:pb-20 lg:pt-40">
         {crumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="hero-rise mb-5 text-sm" style={delay(0)}>
             <ol className="flex flex-wrap items-center gap-2 text-[#2b1d1f]/65">

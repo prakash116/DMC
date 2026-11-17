@@ -14,7 +14,7 @@ const picks = processes.items.slice(0, 3);
 export function BrandsInUse() {
   const reduce = useReducedMotion();
   return (
-    <section className="py-20 sm:py-24 lg:py-28" aria-labelledby="brands-in-use-heading">
+    <section className="py-14 sm:py-24 lg:py-28" aria-labelledby="brands-in-use-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <m.div
           initial="hidden"

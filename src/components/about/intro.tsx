@@ -15,7 +15,7 @@ export function AboutIntro() {
   const imgY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [50, -50]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-20 sm:py-24 lg:py-32" aria-labelledby="about-intro-heading">
+    <section ref={ref} className="relative overflow-hidden py-14 sm:py-24 lg:py-32" aria-labelledby="about-intro-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-20 lg:px-8">
         {/* Copy */}
         <div>

@@ -46,7 +46,7 @@ export function ServicesCatalogue() {
   }, [q]);
 
   return (
-    <section id="all-services" className="relative scroll-mt-24 py-20 sm:py-24 lg:py-28" aria-labelledby="all-services-heading">
+    <section id="all-services" className="relative scroll-mt-24 py-14 sm:py-24 lg:py-28" aria-labelledby="all-services-heading">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <m.div
           initial="hidden"

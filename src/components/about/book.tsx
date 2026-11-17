@@ -12,7 +12,7 @@ export function ExploreBook() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32" aria-labelledby="book-heading">
+    <section className="relative overflow-hidden py-14 sm:py-24 lg:py-32" aria-labelledby="book-heading">
       {/* warm saffron wash that picks up the cover's palette */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_28%_50%,rgba(214,150,60,0.22),transparent_70%)]" />
@@ -128,7 +128,7 @@ function Book3D({ reduce }: { reduce: boolean }) {
           <div
             className="absolute inset-0 origin-left overflow-hidden rounded-r-md shadow-[0_30px_50px_-20px_rgba(60,30,10,0.55)] transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] transform-3d group-hover:transform-[rotateY(-26deg)]"
           >
-            <Image src={book.image} alt={`${book.heading.replace("Discover ", "")} book cover`} fill sizes="320px" className="object-cover" />
+            <Image src={book.image} alt={`${book.heading.replace("Discover ", "")} book cover`} fill sizes="(min-width: 1024px) 320px, (min-width: 640px) 280px, 240px" className="object-cover" />
             {/* spine crease + gloss */}
             <span className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-linear-to-r from-black/35 to-transparent" aria-hidden="true" />
             <span className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/20 via-transparent to-transparent" aria-hidden="true" />

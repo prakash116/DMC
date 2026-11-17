@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Site is light-only. `dark:` stays class-scoped (no .dark class is ever set) so it never follows the OS theme */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ---------- Brand palette (three fixed colours) ---------- */
 :root {
   --cosmic-latte: #b7a89a;
@@ -29,24 +26,6 @@
   --glass-shadow: 0 10px 40px -14px rgba(114, 47, 55, 0.28);
 }
 
-.dark {
-  --background: #1a1214;          /* burgundy-black */
-  --foreground: var(--mocha-cream);
-  --surface: #241a1c;
-  --surface-muted: #2f2225;
-  --muted: var(--cosmic-latte);
-  --border: #3d2d30;
-  --primary: #a0444e;             /* lifted burgundy for contrast on dark */
-  --primary-foreground: #ffffff;
-  --accent: var(--cosmic-latte);
-  --accent-foreground: #1a1214;
-
-  --glass-bg: rgba(36, 26, 28, 0.45);
-  --glass-bg-strong: rgba(36, 26, 28, 0.7);
-  --glass-border: rgba(232, 220, 198, 0.16);
-  --glass-edge: rgba(232, 220, 198, 0.08);
-  --glass-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.6);
-}
 
 @theme inline {
   --color-cosmic-latte: var(--cosmic-latte);
@@ -247,3 +226,4 @@ body {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
+

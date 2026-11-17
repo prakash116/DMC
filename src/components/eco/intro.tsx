@@ -16,7 +16,7 @@ export function EcoIntro() {
   const imgY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [50, -50]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-20 sm:py-24 lg:py-32" aria-labelledby="eco-intro-heading">
+    <section ref={ref} className="relative overflow-hidden py-14 sm:py-24 lg:py-32" aria-labelledby="eco-intro-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20 lg:px-8">
         <div>
           <m.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} variants={{ show: { transition: { staggerChildren: 0.08 } } }}>
