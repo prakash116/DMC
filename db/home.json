@@ -1,10 +1,11 @@
 {
-  "meta": {
-    "title": "Premium Car Detailing & Paint Protection in Rohini | The Detailing Monk",
-    "description": "Studio in Sector 11, Rohini: Premium Car Detailing, Ceramic Coating, PPF Paint Protection Film, Foam Wash & Interior Spa. Book your slot today."
-  },
   "hero": {
-    "badge": ["Clean", "Care", "Protect", "Preserve"],
+    "badge": [
+      "Clean",
+      "Care",
+      "Protect",
+      "Preserve"
+    ],
     "slideDuration": 8000,
     "slides": [
       {
@@ -13,17 +14,29 @@
         "text": "Where devotion meets detailing — professional ceramic coating, PPF, and deep car care crafted to perfection in Sector 11, Rohini.",
         "video": "/videos/video-8.mp4",
         "poster": "/videos/posters/video-image8.jpg",
-        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825?text=Hi%20Detailing%20Monk%2C%20I%20want%20to%20book%20a%20detailing%20slot%20for%20my%20car." },
-        "secondary": { "label": "Book Now", "href": "#booking-section" }
+        "primary": {
+          "label": "Book on WhatsApp",
+          "href": "{{whatsapp}}?text=Hi%20Detailing%20Monk%2C%20I%20want%20to%20book%20a%20detailing%20slot%20for%20my%20car."
+        },
+        "secondary": {
+          "label": "Book Now",
+          "href": "#booking-section"
+        }
       },
       {
         "id": "polish",
         "title": "A mirror finish, revealed",
-        "text": "Multi-stage compounding erases swirls and scratches; ceramic or graphene then locks the shine in for years.",
+        "text": "Multi-stage compounding reduces swirls and light scratches; a ceramic or graphene coating then helps protect the shine.",
         "video": "/videos/video-6.mp4",
         "poster": "/videos/posters/video-image6.jpg",
-        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825?text=Hi%20Detailing%20Monk%2C%20I%20am%20interested%20in%20Paint%20Restoration%20%26%20Polishing." },
-        "secondary": { "label": "Paint & coatings", "href": "/services#paint-restoration" }
+        "primary": {
+          "label": "Book on WhatsApp",
+          "href": "{{whatsapp}}?text=Hi%20Detailing%20Monk%2C%20I%20am%20interested%20in%20Paint%20Restoration%20%26%20Polishing."
+        },
+        "secondary": {
+          "label": "Paint & coatings",
+          "href": "/car-rubbing-polishing-rohini"
+        }
       },
       {
         "id": "wash",
@@ -31,8 +44,14 @@
         "text": "Premium shampoos, rinse-less washes and tyre care — gentle on the finish, hard on grime.",
         "video": "/videos/video-2.mp4",
         "poster": "/videos/posters/video-image2.jpg",
-        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825?text=Hi%20Detailing%20Monk%2C%20I%20want%20to%20book%20a%20Wash%20Package." },
-        "secondary": { "label": "Wash packages", "href": "/services#general-care" }
+        "primary": {
+          "label": "Book on WhatsApp",
+          "href": "{{whatsapp}}?text=Hi%20Detailing%20Monk%2C%20I%20want%20to%20book%20a%20Wash%20Package."
+        },
+        "secondary": {
+          "label": "Wash packages",
+          "href": "/car-foam-wash-rohini"
+        }
       },
       {
         "id": "interior",
@@ -40,8 +59,14 @@
         "text": "Dry-cleaning, steam sanitisation and odour removal — hygiene you feel the moment you sit in.",
         "video": "/videos/video-3.mp4",
         "poster": "/videos/posters/video-image3.jpg",
-        "primary": { "label": "Book on WhatsApp", "href": "https://wa.me/918826966825?text=Hi%20Detailing%20Monk%2C%20I%20want%20Interior%20Dry-Cleaning%20and%20Steam%20Sanitisation." },
-        "secondary": { "label": "Interior care", "href": "/services#speciality-care" }
+        "primary": {
+          "label": "Book on WhatsApp",
+          "href": "{{whatsapp}}?text=Hi%20Detailing%20Monk%2C%20I%20want%20Interior%20Dry-Cleaning%20and%20Steam%20Sanitisation."
+        },
+        "secondary": {
+          "label": "Interior care",
+          "href": "/car-interior-dry-cleaning-rohini"
+        }
       }
     ]
   },
@@ -53,42 +78,44 @@
     {
       "icon": "car-detailing",
       "title": "Ceramic & PPF Protection",
-      "text": "Shield your car's paint from scratches, swirl marks, UV rays, and road gravel with 9H ceramic coatings and self-healing TPU PPF.",
-      "href": "/services#paint-restoration",
-      "linkLabel": "See detailing packages"
+      "text": "Help shield your car's paint from scratches, swirl marks, UV rays and road gravel with ceramic coatings and TPU paint protection film (PPF).",
+      "href": "/ceramic-coating-rohini",
+      "linkLabel": "See ceramic coating"
     },
     {
       "icon": "car-wax",
       "title": "Paint Restoration & Polishing",
-      "text": "Multi-stage machine compounding and fine finishing to eliminate 90%+ scratches, bringing back deep showroom mirror reflection.",
-      "href": "/services#paint-restoration",
+      "text": "Multi-stage machine compounding and fine finishing to reduce swirl marks and light scratches and bring back a deep, glossy reflection.",
+      "href": "/car-rubbing-polishing-rohini",
       "linkLabel": "See polishing options"
     },
     {
       "icon": "car-wash",
       "title": "Deep Interior Spa & Steam",
       "text": "Full cabin revitalization: upholstery stain removal, high-pressure steam sanitization, and antibacterial AC vent treatment.",
-      "href": "/services#speciality-care",
+      "href": "/car-interior-dry-cleaning-rohini",
       "linkLabel": "See interior care"
     }
   ],
   "about": {
     "label": "About Us",
     "heading": "The Detailing Monk",
-    "image": "/images/home/the-detailing-monk-welcome.jpg",
+    "image": "/images/home/car-detailing-polishing-collage-rohini.jpg",
     "paragraphs": [
       "Where devotion meets detailing. At our studio in Sector 11, Rohini, there is a fusion of American innovation and European perfection with Indian heritage — a harmony of technology, precision, and tradition.",
       "We blend precision, care, and craft to protect and beautify your car. From premium foam washes to ceramic coatings and self-healing PPF, every service reflects our ethos of “Seva Through Detailing.” Your car is more than transport — it is a companion in your journey. That's why we treat every surface with reverence, restoring shine and safeguarding beauty with products from trusted global brands."
     ],
     "boxTitle": "A Passionate Beginning",
-    "usps": ["Dust-Free Detailing Bay", "Certified Detailers", "100% Genuine Global Brands", "Personalized Craftsmanship"],
-    "card": {
-      "big": "Tue – Sun",
-      "sub": "10 AM to 8 PM",
-      "pill": "Monday off",
-      "line": "Sector 11, Rohini, Delhi"
-    },
-    "cta": { "label": "Read More About Us", "href": "/about-us" }
+    "usps": [
+      "Dedicated Detailing Studio",
+      "Trained Detailers",
+      "Genuine Global Brands",
+      "Personalized Craftsmanship"
+    ],
+    "cta": {
+      "label": "Read More About Us",
+      "href": "/about-us"
+    }
   },
   "services": {
     "heading": "Our Detailing Services",
@@ -99,27 +126,42 @@
         "title": "Paint Protection & PPF",
         "icon": "shield",
         "badge": "Ultimate Armor",
-        "desc": "Garware & premium TPU self-healing paint protection films to protect your car against stone chips, scratches, and key marks.",
-        "features": ["Self-healing TPU film", "5 to 7 Years Warranty", "High Gloss or Satin Matte", "Non-yellowing optical clarity"],
-        "href": "/services#paint-restoration"
+        "desc": "TPU paint protection film (PPF) that helps protect your car against stone chips, scratches and key marks.",
+        "features": [
+          "190-micron TPU film",
+          "Anti-yellowing film",
+          "Stone-chip & scratch defence",
+          "Fitted in our Rohini studio"
+        ],
+        "href": "/ppf-paint-protection-film-rohini"
       },
       {
         "id": "ceramic-coating",
         "title": "Ceramic & Graphene Coatings",
         "icon": "polish",
         "badge": "Mirror Gloss",
-        "desc": "Multi-layer 9H/10H ceramic and graphene coatings that bond with clear coat for enduring hydrophobic gloss and UV defense.",
-        "features": ["1 to 7 Years Protection", "Extreme hydrophobic beading", "Swirl & oxidation barrier", "Easy wash & maintenance"],
-        "href": "/services#paint-restoration"
+        "desc": "Ceramic and graphene coatings that bond with the clear coat for a water-repellent gloss and UV defence.",
+        "features": [
+          "Ceramic & graphene options",
+          "Water-repellent beading",
+          "Swirl & oxidation barrier",
+          "Easy wash & maintenance"
+        ],
+        "href": "/ceramic-coating-rohini"
       },
       {
         "id": "paint-correction",
         "title": "Compounding & Polishing",
         "icon": "foam",
         "badge": "Swirl Removal",
-        "desc": "Multi-stage precision machine compounding and polishing to eliminate swirls, hazing, and water spots, restoring showroom depth.",
-        "features": ["Eliminates 90%+ swirl marks", "Dual-action polishers", "Menzerna & Koch-Chemie compounds", "Mirror depth reflection"],
-        "href": "/services#paint-restoration"
+        "desc": "Multi-stage machine compounding and polishing to reduce swirls, hazing and water spots and restore depth and gloss.",
+        "features": [
+          "Reduces swirl marks & haze",
+          "Machine compounding",
+          "Fine finishing polish",
+          "Deep, glossy reflection"
+        ],
+        "href": "/car-rubbing-polishing-rohini"
       },
       {
         "id": "interior-spa",
@@ -127,14 +169,19 @@
         "icon": "seat",
         "badge": "Cabin Revival",
         "desc": "Comprehensive dry-cleaning, germ-killing steam sanitization, and antibacterial odor removal to make the cabin spotless and fresh.",
-        "features": ["Seat & roof stain removal", "High-temp steam sanitization", "AC duct odor elimination", "Leather conditioning"],
-        "href": "/services#speciality-care"
+        "features": [
+          "Seat & roof stain removal",
+          "High-temp steam sanitization",
+          "AC duct odor elimination",
+          "Leather conditioning"
+        ],
+        "href": "/car-interior-dry-cleaning-rohini"
       }
     ],
     "cta": {
       "text": "Not sure what your car needs? Send us photos on WhatsApp for a personalized assessment.",
       "label": "Ask on WhatsApp",
-      "href": "https://wa.me/918826966825?text=Hi%20Detailing%20Monk%2C%20I%20would%20like%20a%20recommendation%20for%20my%20car."
+      "href": "{{whatsapp}}?text=Hi%20Detailing%20Monk%2C%20I%20would%20like%20a%20recommendation%20for%20my%20car."
     }
   },
   "whyChooseUs": {
@@ -143,15 +190,15 @@
     "points": [
       {
         "title": "Studio in Sector 11, Rohini",
-        "desc": "Dedicated temperature-controlled, dust-free detailing bays designed to achieve flawless ceramic coating and film installations."
+        "desc": "A dedicated detailing studio set up for careful ceramic coating and paint protection film work."
       },
       {
-        "title": "Certified Master Detailers",
-        "desc": "Trained hands with years of expertise in paint depth measurement, dual-action machine polishing, and PPF edge wrapping."
+        "title": "Trained, Careful Detailers",
+        "desc": "Trained hands for paint inspection, machine polishing and PPF installation — no rushed jobs."
       },
       {
-        "title": "100% Genuine Global Brands",
-        "desc": "We exclusively use world-renowned products from Meguiar's, 3M, Koch-Chemie, CarPro, Menzerna, and Garware Hitech Films."
+        "title": "Genuine Global Brands",
+        "desc": "We use genuine products from established car care brands. See the full list on our Brands page."
       },
       {
         "title": "“Seva Through Detailing” Ethos",
@@ -162,54 +209,21 @@
         "desc": "No fake promises or aggressive upselling. We inspect your paint under detailing lights and recommend only what your car genuinely needs."
       },
       {
-        "title": "Long-Term Warranty & Support",
-        "desc": "Comprehensive warranties on Ceramic & PPF packages with periodic maintenance washes to keep the shine intact for years."
+        "title": "After-Care Support",
+        "desc": "Maintenance washes and after-care advice to help keep the finish looking its best after a coating or PPF."
       }
     ]
   },
   "reviews": {
     "heading": "What Car Owners in Rohini Say",
-    "subheading": "Real feedback from car enthusiasts who trust us with their pride and joy.",
-    "rating": "4.9",
-    "totalReviews": "150+",
-    "items": [
-      {
-        "name": "Aman Sharma",
-        "car": "BMW 3 Series (320d)",
-        "service": "3-Year Ceramic Coating",
-        "text": "Got my BMW 3 Series ceramic coated at The Detailing Monk. The gloss is unbelievable and rainwater just rolls right off! Their patience and attention to detail in Sector 11 is unmatched.",
-        "stars": 5,
-        "location": "Rohini Sector 11"
-      },
-      {
-        "name": "Vikas Goel",
-        "car": "Mahindra Thar 4x4",
-        "service": "Garware TPU PPF",
-        "text": "Full body PPF done on my new Thar. The edge tucking and clarity are spotless. No visible seams or stretch marks. Truly professional workmanship!",
-        "stars": 5,
-        "location": "Rohini Sector 13"
-      },
-      {
-        "name": "Dr. Ritu Malhotra",
-        "car": "Kia Seltos",
-        "service": "Deep Interior Spa & Steam",
-        "text": "Had coffee spills and stains on my light beige upholstery. They completely restored the interior with steam sanitization. The cabin smells like a new showroom car!",
-        "stars": 5,
-        "location": "Pitampura"
-      },
-      {
-        "name": "Rajesh Aggarwal",
-        "car": "Toyota Fortuner",
-        "service": "Paint Correction & Polish",
-        "text": "Swirl marks from daily washing had dulled my black Fortuner. The Detailing Monk team revived it to a deep mirror finish. Honest pricing and courteous staff.",
-        "stars": 5,
-        "location": "Prashant Vihar"
-      }
-    ]
+    "subheading": "Real reviews from our Google Business Profile."
   },
   "brands": {
     "heading": "Brands We Use",
     "text": "Shampoos, compounds, coatings and films from the names professional detailers trust worldwide.",
-    "link": { "label": "See all 23 brands", "href": "/brands" }
+    "link": {
+      "label": "See all 23 brands",
+      "href": "/brands"
+    }
   }
 }

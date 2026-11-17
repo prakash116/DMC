@@ -1,11 +1,8 @@
 {
-  "meta": {
-    "title": "Brands We Use | The Detailing Monk",
-    "description": "Premium car care brands used at The Detailing Monk, Rohini: 3M, Meguiar's, CarPro, Koch-Chemie, Menzerna, Garware PPF and more."
-  },
   "banner": {
-    "title": "Brands We Use",
-    "image": "/images/brands/detailing-monk-brand-banner.jpg"
+    "title": "Car Care Brands We Use",
+    "image": "/images/brands/detailing-monk-brand-banner.jpg",
+    "crumb": "Brands"
   },
   "intro": {
     "label": "Where devotion meets detailing",

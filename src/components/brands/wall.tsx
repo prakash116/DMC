@@ -27,7 +27,7 @@ export function BrandsWall() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <h2 id="brand-wall-heading" className="font-display text-4xl font-medium leading-[1.08] sm:text-5xl">
-            {db.brands.banner.title}
+            Brands We Use
           </h2>
 
           {/* filter */}

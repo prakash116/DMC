@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { m, useReducedMotion } from "framer-motion";
+import { business, whatsappLink } from "@/lib/business";
+import { isIndianMobile } from "@/lib/phone";
+import { track } from "@/lib/analytics";
 
 const SERVICES_OPTIONS = [
-  "Ceramic Coating (1, 3 or 5-Year Protection)",
-  "Paint Protection Film (PPF - Garware / TPU)",
+  "Ceramic Coating",
+  "Paint Protection Film (PPF)",
   "Compounding & Swirl Mark Polishing",
   "Deep Interior Spa & Steam Sanitization",
   "Premium Foam Wash & Exterior Care",
@@ -40,9 +43,8 @@ export function BookingSection() {
     if (!formData.name.trim()) {
       newErrors.name = "Please enter your full name.";
     }
-    const cleanPhone = formData.phone.replace(/\D/g, "");
-    if (!cleanPhone || cleanPhone.length < 10) {
-      newErrors.phone = "Please enter a valid 10-digit phone number.";
+    if (!isIndianMobile(formData.phone)) {
+      newErrors.phone = "Please enter a valid 10-digit Indian mobile number.";
     }
     if (!formData.carModel.trim()) {
       newErrors.carModel = "Please enter your car model (e.g. Creta, Thar, BMW).";
@@ -65,7 +67,8 @@ export function BookingSection() {
       `Please let me know available slots & estimated quotation.`,
     ].join("\n");
 
-    const waHref = `https://wa.me/918826966825?text=${encodeURIComponent(msg)}`;
+    const waHref = whatsappLink(msg);
+    track("booking_submit", { form: "home_booking", service: formData.service });
     window.open(waHref, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
@@ -102,13 +105,13 @@ export function BookingSection() {
                 <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-deep-burgundy text-white">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                 </span>
-                <span><strong>Sector 11, Rohini Studio:</strong> Dedicated dust-free bays</span>
+                <span><strong>{business.address.area} Studio:</strong> Dedicated detailing bays</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-deep-burgundy text-white">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                 </span>
-                <span><strong>Tue – Sun (10 AM to 8 PM):</strong> Monday off</span>
+                <span><strong>{business.hours.days} ({business.hours.time}):</strong> {business.hours.closedNote}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-deep-burgundy text-white">
@@ -120,12 +123,12 @@ export function BookingSection() {
 
             <div className="mt-8 pt-6 border-t border-border/70 flex items-center gap-4">
               <a
-                href="https://wa.me/918826966825"
+                href={business.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f7d70] hover:underline"
               >
-                <WhatsAppIcon /> Or chat directly: +91 88269 66825
+                <WhatsAppIcon /> Or chat directly: {business.phone}
               </a>
             </div>
           </m.div>

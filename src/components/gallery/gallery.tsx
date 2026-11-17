@@ -180,10 +180,10 @@ function Tile({ layoutKey, src, alt, sizes, onOpen }: { layoutKey: string; src: 
       style={{ borderRadius: 18 }}
       className="group relative block h-full w-full overflow-hidden bg-cosmic-latte shadow-[0_20px_40px_-26px_rgba(114,47,55,0.6)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary"
     >
-      <Image src={src} alt="" fill sizes={sizes} className="object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110" />
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110" />
       <span className="absolute inset-0 bg-linear-to-t from-[#2b1d1f]/75 via-[#2b1d1f]/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" />
       <span className="absolute inset-x-4 bottom-4 flex translate-y-3 items-center justify-between gap-2 text-left text-mocha-cream opacity-0 transition-[opacity,transform] duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-        <span className="font-display text-lg italic leading-tight">{alt}</span>
+        <span className="font-display text-lg italic leading-tight" aria-hidden="true">{alt}</span>
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-mocha-cream/20 backdrop-blur">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />

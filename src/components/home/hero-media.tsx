@@ -52,7 +52,7 @@ export function HeroMedia({ slides, active, dir, duration, paused, reduce, onPic
             className="absolute inset-0 overflow-hidden bg-[#2b1d1f] shadow-[0_30px_60px_-24px_rgba(43,29,31,0.6)]"
           >
             {/* optimized poster paints first (LCP); the mp4 is attached once the page is idle */}
-            <Image src={current.poster} alt="" fill loading={active === 0 ? "eager" : "lazy"} fetchPriority={active === 0 ? "high" : "auto"} sizes="(min-width: 1024px) 32rem, 90vw" className="object-cover" />
+            <Image src={current.poster} alt={`Car detailing at The Detailing Monk, Rohini: ${current.title}`} fill loading={active === 0 ? "eager" : "lazy"} fetchPriority={active === 0 ? "high" : "auto"} sizes="(min-width: 1024px) 32rem, 90vw" className="object-cover" />
             {videoOn && (
               <video key={current.video} src={current.video} autoPlay muted loop playsInline preload="auto" className="absolute inset-0 h-full w-full object-cover" />
             )}

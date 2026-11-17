@@ -8,7 +8,10 @@ import { useRichVisuals } from "@/hooks/use-rich-visuals";
 const PageHeroScene = dynamic(() => import("./page-hero-scene").then((m) => m.PageHeroScene), { ssr: false });
 
 type Props = {
+  /** the page H1 */
   title: string;
+  /** short label for the breadcrumb (defaults to the title) */
+  crumb?: string;
   eyebrow?: string;
   text?: string;
   crumbs?: { label: string; href: string }[];
@@ -18,7 +21,9 @@ type Props = {
  * Entrance is pure CSS (.hero-rise): it starts with the server HTML, so the page title — usually the
  * LCP element — paints immediately instead of waiting for JS hydration to un-hide it.
  */
-export function PageHero({ title, eyebrow, text, crumbs = [] }: Props) {
+export function PageHero({ title, crumb, eyebrow, text, crumbs = [] }: Props) {
+  // keyword-rich H1s are longer than the old one-word titles: step the size down so they wrap cleanly
+  const long = title.length > 20;
   const reduce = useReducedMotion();
   const rich = useRichVisuals();
   const delay = (i: number) => ({ animationDelay: `${120 + i * 90}ms` });
@@ -47,7 +52,7 @@ export function PageHero({ title, eyebrow, text, crumbs = [] }: Props) {
                 </li>
               ))}
               <li className="font-medium text-[#2b1d1f]" aria-current="page">
-                {title}
+                {crumb ?? title}
               </li>
             </ol>
           </nav>
@@ -57,7 +62,7 @@ export function PageHero({ title, eyebrow, text, crumbs = [] }: Props) {
             {eyebrow}
           </p>
         )}
-        <h1 id="page-title" className="hero-rise mt-1 font-display text-5xl font-medium leading-[1.02] text-[#2b1d1f] sm:text-6xl lg:text-[5.5rem]" style={delay(2)}>
+        <h1 id="page-title" className={`hero-rise mt-1 font-display font-medium text-[#2b1d1f] ${long ? "text-4xl leading-[1.08] sm:text-5xl lg:text-7xl" : "text-5xl leading-[1.02] sm:text-6xl lg:text-[5.5rem]"}`} style={delay(2)}>
           {title}
         </h1>
         {text && (

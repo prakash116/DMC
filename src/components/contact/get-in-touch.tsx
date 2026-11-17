@@ -15,7 +15,7 @@ const rows: Row[] = [
   { label: "Whatsapp Number", value: contact.whatsapp.replace(/^91/, ""), href: contact.whatsappHref, copy: contact.whatsapp.replace(/^91/, ""), icon: "/icons/whatsapp-icon.svg", external: true },
   { label: "Email", value: contact.email, href: `mailto:${contact.email}`, copy: contact.email, icon: "/icons/email-icon.svg" },
   { label: "Address", value: `${contact.address.line1}, ${contact.address.line2}`, href: contact.directionsHref, copy: `${contact.address.line1}, ${contact.address.line2}`, icon: "/icons/location-map-icon.svg", external: true },
-  { label: "Office Timing", value: `${contact.hours} · ${contact.closed} is Off`, icon: "/icons/clock-icon.svg" },
+  { label: "Office Timing", value: [contact.hours, contact.closedLine].filter(Boolean).join(" · "), icon: "/icons/clock-icon.svg" },
 ];
 
 export function GetInTouch() {

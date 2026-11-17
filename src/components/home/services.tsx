@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { LayoutGroup, m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
+import { whatsappLink } from "@/lib/business";
 
 const { services } = db.home;
 const categories = services.categories;
@@ -106,8 +107,7 @@ export function Services() {
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
         >
           {shown.map((c) => {
-            const waText = encodeURIComponent(`Hi Detailing Monk, I am interested in booking: ${c.title}. Please provide details & quotation.`);
-            const waHref = `https://wa.me/918826966825?text=${waText}`;
+            const waHref = whatsappLink(`Hi Detailing Monk, I am interested in booking: ${c.title}. Please provide details & quotation.`);
 
             return (
               <m.li

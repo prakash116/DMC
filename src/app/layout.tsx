@@ -8,6 +8,11 @@ import { FloatingContact } from "@/components/layout/floating-contact";
 import { IntroGate } from "@/components/preloader/intro-gate";
 import "./globals.css";
 import { RICH_QUERY } from "@/lib/rich-query";
+import { business } from "@/lib/business";
+import { localBusinessSchema } from "@/lib/schema";
+import { OG_IMAGE, PAGE_META } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/json-ld";
+import { Analytics } from "@/components/seo/analytics";
 
 // decide before first paint whether the intro overlay is shown (desktop, first visit of the session)
 const introScript = `try{if(sessionStorage.getItem("tdm-preloader-seen")!=="1"&&matchMedia(${JSON.stringify(RICH_QUERY)}).matches&&!(navigator.connection&&navigator.connection.saveData))document.documentElement.classList.add("tdm-intro")}catch(e){}`;
@@ -27,10 +32,14 @@ const sans = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Car Detailing & Ceramic Coating in Rohini, Delhi | The Detailing Monk",
-  description:
-    "Car detailing studio in Sector 11, Rohini: foam wash, interior dry cleaning, polishing, ceramic coating & PPF. Open Tue–Sun 10 AM–8 PM.",
-  applicationName: "The Detailing Monk",
+  metadataBase: new URL(business.siteUrl),
+  // defaults only; every page sets its own title, description, canonical and social tags via src/lib/seo.ts
+  title: PAGE_META["/"].title,
+  description: PAGE_META["/"].description,
+  openGraph: { type: "website", siteName: business.name, locale: "en_IN", images: [OG_IMAGE] },
+  // Google Search Console ownership (set GOOGLE_SITE_VERIFICATION in the environment)
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  applicationName: business.name,
   appleWebApp: { capable: true, title: "Detailing Monk", statusBarStyle: "default" },
 };
 
@@ -60,6 +69,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <Footer />
           <FloatingContact />
+          <JsonLd data={localBusinessSchema()} />
+          <Analytics />
         </MotionProvider>
       </body>
     </html>

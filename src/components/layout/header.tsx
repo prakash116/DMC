@@ -8,6 +8,7 @@ import { db } from "@/lib/db";
 import { Logo } from "./logo";
 import { InstallApp } from "./install-app";
 import { MobileMenu } from "./mobile-menu";
+import { services } from "@/lib/services-data";
 
 const { nav, contact } = db.site;
 // Logo already links to home, so desktop nav focuses on primary pages to keep header elegant and uncongested
@@ -52,7 +53,7 @@ export function Header() {
                   const active = pathname === item.href;
                   const showLine = underlineTarget === item.href;
                   return (
-                    <li key={item.href} className="relative">
+                    <li key={item.href} className="group/nav relative">
                       <Link
                         href={item.href}
                         aria-current={active ? "page" : undefined}
@@ -75,6 +76,20 @@ export function Header() {
                           />
                         )}
                       </Link>
+                      {item.href === "/services" && (
+                        <ul className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 translate-y-1 rounded-2xl border border-border bg-surface p-2 opacity-0 shadow-xl transition-[opacity,transform,visibility] duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:visible group-focus-within/nav:translate-y-0 group-focus-within/nav:opacity-100">
+                          {services.map((s) => (
+                            <li key={s.slug}>
+                              <Link
+                                href={`/${s.slug}`}
+                                className="block rounded-xl px-3 py-2 text-sm font-medium text-foreground/85 transition-colors hover:bg-surface-muted hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                              >
+                                {s.navLabel}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   );
                 })}

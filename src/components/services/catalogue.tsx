@@ -11,9 +11,9 @@ const { contact } = db.site;
 
 /* tier → photo + icon (all from the services image set) */
 const LOOK: Record<string, { image: string; icon: string }> = {
-  "general-care": { image: "/images/services/foam-detailed-washes-serv.jpg", icon: "/icons/car-wash.svg" },
-  "paint-restoration": { image: "/images/services/polishing-restoration-serv.jpg", icon: "/icons/car-wax.svg" },
-  "speciality-care": { image: "/images/services/special-treatments-serv.jpg", icon: "/icons/car-detailing.svg" },
+  "general-care": { image: "/images/services/car-foam-wash-rohini.jpg", icon: "/icons/car-wash.svg" },
+  "paint-restoration": { image: "/images/services/car-machine-polishing-rohini.jpg", icon: "/icons/car-wax.svg" },
+  "speciality-care": { image: "/images/services/alloy-wheel-cleaning-rohini.jpg", icon: "/icons/car-detailing.svg" },
 };
 
 const waLink = (service: string) => `${contact.whatsappHref}?text=${encodeURIComponent(`Hi, I'd like to book: ${service}`)}`;
@@ -135,7 +135,7 @@ export function ServicesCatalogue() {
                   className="lg:sticky lg:top-48 lg:self-start"
                 >
                   <div className="relative overflow-hidden rounded-3xl bg-[#2b1d1f] text-mocha-cream shadow-[0_30px_60px_-30px_rgba(114,47,55,0.55)]">
-                    <Image src={LOOK[t.id].image} alt="" width={400} height={383} sizes="(min-width: 1024px) 30vw, 100vw" className="h-40 w-full object-cover opacity-55 sm:h-64 lg:h-72" />
+                    <Image src={LOOK[t.id].image} alt={`${t.title} services at The Detailing Monk, Rohini`} width={400} height={383} sizes="(min-width: 1024px) 30vw, 100vw" className="h-40 w-full object-cover opacity-55 sm:h-64 lg:h-72" />
                     <div className="absolute inset-0 bg-linear-to-t from-[#2b1d1f] via-[#2b1d1f]/40 to-transparent" />
                     <div className="absolute inset-x-6 bottom-6">
                       <div className="flex items-center gap-3">

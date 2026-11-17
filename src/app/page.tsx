@@ -7,6 +7,10 @@ import { WhyChooseUs } from "@/components/home/why-choose-us";
 import { CustomerReviews } from "@/components/home/customer-reviews";
 import { BookingSection } from "@/components/home/booking-section";
 import { Brands } from "@/components/home/brands";
+import { VisitUs } from "@/components/home/visit-us";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/");
 
 export default function Home() {
   return (
@@ -19,6 +23,7 @@ export default function Home() {
       <WhyChooseUs />
       <CustomerReviews />
       <BookingSection />
+      <VisitUs />
       <Brands />
     </main>
   );

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/layout/page-hero";
 import { BrandsIntro } from "@/components/brands/intro";
 import { BrandsWall } from "@/components/brands/wall";
@@ -7,14 +7,14 @@ import { BrandsNameMarquee } from "@/components/brands/name-marquee";
 import { ServicesCta } from "@/components/services/cta";
 import { db } from "@/lib/db";
 
-const { meta, banner } = db.brands;
+const { banner } = db.brands;
 
-export const metadata: Metadata = { title: meta.title, description: meta.description };
+export const metadata = pageMetadata("/brands");
 
 export default function BrandsPage() {
   return (
     <main className="flex flex-1 flex-col">
-      <PageHero title={banner.title} eyebrow={db.site.tagline} crumbs={[{ label: "Home", href: "/" }]} />
+      <PageHero title={banner.title} crumb={banner.crumb} eyebrow={db.site.tagline} crumbs={[{ label: "Home", href: "/" }]} />
       <BrandsIntro />
       <BrandsWall />
       <BrandsNameMarquee />

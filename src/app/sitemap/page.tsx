@@ -1,11 +1,16 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
 import { db } from "@/lib/db";
+import { services } from "@/lib/services-data";
 
-export const metadata: Metadata = { title: "Sitemap | The Detailing Monk", description: "All pages of The Detailing Monk website." };
+export const metadata = pageMetadata("/sitemap");
 
-const pages = [...db.site.nav, ...db.site.footerLinks.filter((l) => l.href !== "/sitemap")];
+const pages = [
+  ...db.site.nav,
+  ...services.map((s) => ({ label: s.navLabel, href: `/${s.slug}` })),
+  ...db.site.footerLinks.filter((l) => l.href !== "/sitemap"),
+];
 
 export default function SitemapPage() {
   return (

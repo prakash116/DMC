@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { db } from "@/lib/db";
 
 const { contact } = db.site;
@@ -52,18 +51,15 @@ export function FloatingContact() {
             <WhatsAppIcon />
             <span>WhatsApp</span>
           </a>
-          <Link
-            href="/#booking-section"
+          <a
+            href={contact.phoneHref}
             className="flex items-center justify-center gap-2 rounded-xl bg-deep-burgundy py-2.5 text-xs font-semibold text-white shadow-sm active:scale-95"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.8 2z" />
             </svg>
-            <span>Book Now</span>
-          </Link>
+            <span>Call Now</span>
+          </a>
         </div>
       </div>
     </>

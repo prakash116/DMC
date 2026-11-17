@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { m, useReducedMotion, type Variants } from "framer-motion";
 import { db } from "@/lib/db";
 import { useRichVisuals } from "@/hooks/use-rich-visuals";
+import { services } from "@/lib/services-data";
 
 const FooterCar = dynamic(() => import("./footer-car").then((m) => m.FooterCar), { ssr: false });
 
@@ -77,7 +78,7 @@ export function Footer() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="glass-strong my-10 grid gap-10 rounded-3xl px-6 py-9 sm:my-12 sm:grid-cols-2 sm:px-9 sm:py-11 lg:grid-cols-[1.3fr_1fr_1.1fr] lg:gap-12 lg:px-12"
+          className="glass-strong my-10 grid gap-10 rounded-3xl px-6 py-9 sm:my-12 sm:grid-cols-2 sm:px-9 sm:py-11 lg:grid-cols-[1.2fr_1.1fr_1fr_0.8fr] lg:gap-10 lg:px-12"
         >
           {/* Brand */}
           <m.div variants={fade}>
@@ -89,7 +90,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
-              A car detailing studio in Sector 11, Rohini — washes, interior care, polishing, ceramic & graphene coatings and PPF, done by hand with devotion.
+              A car detailing studio in {contact.address.area} — washes, interior care, polishing, ceramic & graphene coatings and PPF, done by hand with devotion.
             </p>
             <ul className="mt-6 flex gap-3" aria-label="Social media">
               {[
@@ -136,19 +137,37 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-foreground/80">
                 <PinIcon />
-                <span><span className="block text-xs text-muted">Address</span>{contact.address.line1},<br />{contact.address.line2}</span>
+                <span><span className="block text-xs text-muted">Address</span>{contact.address.full}</span>
               </li>
               <li className="flex items-start gap-3 text-foreground/80">
                 <ClockIcon />
-                <span><span className="block text-xs text-muted">Open timing</span>{contact.hours}<br />{contact.closed} is off</span>
+                <span><span className="block text-xs text-muted">Open timing</span>{contact.hours}{contact.closedLine && <><br />{contact.closedLine}</>}</span>
               </li>
             </ul>
           </m.div>
 
+          {/* Service pages */}
+          <m.nav variants={fade} aria-label="Services">
+            <h3 className="font-display text-xl font-semibold text-foreground">Services</h3>
+            <ul className="mt-4 text-sm">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/${s.slug}`}
+                    className="group inline-flex min-h-10 items-center gap-2 text-foreground/80 transition-colors hover:text-deep-burgundy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep-burgundy"
+                  >
+                    <span className="h-px w-0 bg-deep-burgundy transition-[width] duration-300 group-hover:w-4" aria-hidden="true" />
+                    {s.navLabel}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </m.nav>
+
           {/* Quick links */}
           <m.nav variants={fade} aria-label="Footer">
             <h3 className="font-display text-xl font-semibold text-foreground">Quick links</h3>
-            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm lg:grid-cols-1">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <Link

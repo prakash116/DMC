@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
 import { InstallApp } from "./install-app";
+import { services } from "@/lib/services-data";
 
 type Props = {
   open: boolean;
@@ -88,6 +89,20 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               })}
             </ul>
 
+            <ul className="mt-5 flex flex-wrap gap-2" aria-label="Our services">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/${s.slug}`}
+                    onClick={onClose}
+                    className="inline-flex min-h-9 items-center rounded-full border border-border bg-surface/70 px-3.5 py-1.5 text-[13px] font-medium text-foreground/85 hover:text-primary"
+                  >
+                    {s.navLabel}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
             <div className="mt-6 mb-2">
               <Link
                 href="/#booking-section"
@@ -117,7 +132,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               <a href={contact.phoneHref} className="font-medium text-foreground hover:text-primary">
                 {contact.phone}
               </a>
-              <span className="text-xs text-muted">Tue–Sun, 10 AM–8 PM</span>
+              <span className="text-xs text-muted">{contact.hoursShort}</span>
             </div>
             <div className="flex shrink-0 items-center gap-2">
               <a

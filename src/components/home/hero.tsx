@@ -46,6 +46,7 @@ export function Hero() {
   };
 
   const slide = slides[index];
+  const SlideHeading = index === 0 ? "h1" : "h2";
   const textVariants = reduce
     ? { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } }
     : {
@@ -99,9 +100,10 @@ export function Hero() {
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               aria-live="polite"
             >
-              <h1 className="font-display text-[2.4rem] font-medium leading-[1.08] text-[#2b1d1f] sm:text-5xl lg:text-[4rem]">
+              {/* one H1 per page: the first slide carries it, the other slides are H2 */}
+              <SlideHeading className="font-display text-[2.4rem] font-medium leading-[1.08] text-[#2b1d1f] sm:text-5xl lg:text-[4rem]">
                 {slide.title}
-              </h1>
+              </SlideHeading>
               <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-[#2b1d1f]/80 sm:text-lg lg:mx-0">{slide.text}</p>
               <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5 lg:justify-start">
                 <a

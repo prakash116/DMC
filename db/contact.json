@@ -1,15 +1,36 @@
 {
-  "meta": { "title": "Contact The Detailing Monk – Sector 11, Rohini, Delhi", "description": "A1/138-139, Sector 11, Rohini, New Delhi 110085. Call or WhatsApp 88269 66825. Get directions and opening hours." },
-  "banner": { "title": "Contact Us", "image": "/images/contact/the-detailing-monk-contact-banner.jpg" },
+  "banner": {
+    "title": "Contact The Detailing Monk – Sector 11, Rohini",
+    "image": "/images/contact/the-detailing-monk-contact-banner.jpg",
+    "crumb": "Contact Us"
+  },
   "heading": "Get in Touch",
   "intro": "We'd love to hear from you. Drop us a message and our team will get back to you shortly.",
-  "cta": { "label": "Send Enquiry", "href": "#contact-form" },
+  "cta": {
+    "label": "Send Enquiry",
+    "href": "#contact-form"
+  },
   "form": {
     "heading": "Get Estimated Quotation",
     "fields": [
-      { "name": "name", "label": "Full Name", "type": "text", "required": true },
-      { "name": "phone", "label": "Phone Number", "type": "tel", "required": true },
-      { "name": "carModel", "label": "Car Model & Year", "type": "text", "required": true }
+      {
+        "name": "name",
+        "label": "Full Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "phone",
+        "label": "Phone Number",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "name": "carModel",
+        "label": "Car Model & Year",
+        "type": "text",
+        "required": true
+      }
     ],
     "submitLabel": "Book via WhatsApp"
   }

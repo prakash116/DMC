@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
+import { useLiveOffers } from "@/hooks/use-live-offers";
 import { fade, EASE } from "@/components/services/motion";
 
 const seva = db.seva;
@@ -11,6 +12,9 @@ const wa = (offer: string) => `${contact.whatsappHref}?text=${encodeURIComponent
 
 export function SevaOffers() {
   const reduce = useReducedMotion();
+  // only offers that are active and not past their end date (src/lib/offers.ts)
+  const liveIds = new Set(useLiveOffers().map((o) => o.id));
+  const liveOffers = seva.offers.filter((o) => liveIds.has(o.id));
   return (
     <section className="py-14 sm:py-24 lg:py-28" aria-labelledby="seva-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20 lg:px-8">
@@ -29,7 +33,7 @@ export function SevaOffers() {
 
           {/* coupon-style offer cards */}
           <ul className="mt-10 grid gap-5 sm:grid-cols-2">
-            {seva.offers.map((o, i) => (
+            {liveOffers.map((o, i) => (
               <m.li
                 key={o.title}
                 initial={reduce ? { opacity: 0 } : { opacity: 0, y: 40, rotate: i ? 2 : -2 }}

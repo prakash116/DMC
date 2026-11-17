@@ -3,6 +3,8 @@
 import { useId, useState } from "react";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
+import { isIndianMobile } from "@/lib/phone";
+import { track } from "@/lib/analytics";
 import { EASE, splitService } from "@/components/services/motion";
 
 const { form } = db.contact;
@@ -18,7 +20,7 @@ function validate(v: Values) {
     const val = (v[f.name] ?? "").trim();
     if (f.required && !val) e[f.name] = `Please enter your ${f.label.toLowerCase()}.`;
     else if (f.type === "email" && val && !EMAIL.test(val)) e[f.name] = "That email doesn’t look right.";
-    else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 10) e[f.name] = "Enter a 10-digit phone number.";
+    else if (f.type === "tel" && val && !isIndianMobile(val)) e[f.name] = "Enter a valid 10-digit Indian mobile number.";
   }
   return e;
 }
@@ -55,6 +57,7 @@ export function Enquiry() {
       if (first) document.getElementById(`f-${first.name}`)?.focus();
       return;
     }
+    track("booking_submit", { form: "contact_enquiry" });
     window.open(`${contact.whatsappHref}?text=${encodeURIComponent(compose(values))}`, "_blank", "noopener");
     setSent(true);
   };

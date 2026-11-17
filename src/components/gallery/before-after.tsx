@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { whatsappLink } from "@/lib/business";
 import Image from "next/image";
 
 interface ComparisonItem {
@@ -19,17 +20,17 @@ const COMPARISONS: ComparisonItem[] = [
     title: "Paint Correction & Swirl Mark Removal",
     category: "Exterior Compounding",
     beforeDesc: "Swirl marks, spider webbing, micro-scratches and dull paint caused by improper washing.",
-    afterDesc: "90%+ defect removal with high-precision machine compounding, revealing deep mirror gloss.",
-    beforeImage: "/images/home/detailing-touch.jpg",
-    afterImage: "/images/home/paint-care.jpg",
+    afterDesc: "Machine compounding and polishing to reduce swirl marks and bring back a deep, glossy finish.",
+    beforeImage: "/images/home/detailing-products-trolley-rohini-studio.jpg",
+    afterImage: "/images/home/the-detailing-monk-studio-front-sector-11-rohini.jpg",
   },
   {
     id: "ceramic-gloss",
     title: "Ceramic Coating Gloss & Hydrophobic Shield",
     category: "Paint Protection",
     beforeDesc: "Unprotected clear coat prone to bird droppings, acid rain, UV oxidation, and hard water spots.",
-    afterDesc: "Multi-year 9H ceramic shield producing candy gloss, rich colour depth, and extreme water beading.",
-    beforeImage: "/images/services/polishing-restoration-serv.jpg",
+    afterDesc: "Ceramic coating for a glossy finish, rich colour depth and strong water beading.",
+    beforeImage: "/images/services/car-machine-polishing-rohini.jpg",
     afterImage: "/videos/posters/video-image8.jpg",
   },
   {
@@ -37,18 +38,18 @@ const COMPARISONS: ComparisonItem[] = [
     title: "Deep Interior Cleaning & Steam Sanitization",
     category: "Cabin Care",
     beforeDesc: "Dust, grime, and food stains embedded deep into seats, carpets, and air conditioning vents.",
-    afterDesc: "140°C high-temp steam sanitization, stain extraction, and leather conditioning for a factory-fresh cabin.",
-    beforeImage: "/images/services/interior-care-serv.jpg",
-    afterImage: "/images/home/interior-care.jpg",
+    afterDesc: "Steam sanitization, stain extraction and conditioning for a fresh, clean cabin.",
+    beforeImage: "/images/services/car-interior-detailing-brush-rohini.jpg",
+    afterImage: "/images/home/car-interior-vacuum-cleaner-rohini-studio.jpg",
   },
   {
     id: "detailed-foam-wash",
     title: "Decontamination & Foam Wash",
     category: "Wash & Seal",
     beforeDesc: "Heavy traffic film, road tar, and brake dust coating panels and alloy wheels.",
-    afterDesc: "Scratch-free two-bucket pH-neutral foam wash, surface decontamination, and satin tyre dressing.",
-    beforeImage: "/images/services/foam-detailed-washes-serv.jpg",
-    afterImage: "/images/home/exterior-care.jpg",
+    afterDesc: "Gentle foam wash, surface decontamination and tyre dressing.",
+    beforeImage: "/images/services/car-foam-wash-rohini.jpg",
+    afterImage: "/images/home/car-care-products-shelf-rohini-studio.jpg",
   },
 ];
 
@@ -115,9 +116,7 @@ export function BeforeAfterSection() {
 
         <div className="mt-8 text-center">
           <a
-            href={`https://wa.me/918826966825?text=${encodeURIComponent(
-              `Hi Detailing Monk, I saw your Before & After for "${active.title}". I'd like to get my car detailed.`
-            )}`}
+            href={whatsappLink(`Hi Detailing Monk, I saw your Before & After for "${active.title}". I'd like to get my car detailed.`)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#0f7d70] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#0f7d70]/30 transition-transform hover:-translate-y-0.5"
