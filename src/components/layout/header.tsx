@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { LayoutGroup, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
 import { Logo } from "./logo";
-import { ThemeToggle } from "./theme-toggle";
+import { InstallApp } from "./install-app";
 import { MobileMenu } from "./mobile-menu";
 
 const { nav, contact } = db.site;
@@ -104,8 +104,8 @@ export function Header() {
               Book Now
             </Link>
 
-            {/* Theme Toggle on desktop */}
-            <ThemeToggle className="hidden lg:grid" />
+            {/* Install as a phone app (PWA): icon on tablet, labelled pill on wide desktop; on phones it lives in the menu */}
+            <InstallApp className="hidden sm:inline-flex" />
 
             {/* Mobile Hamburger button */}
             <button

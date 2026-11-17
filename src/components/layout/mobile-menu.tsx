@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { db } from "@/lib/db";
-import { ThemeToggle } from "./theme-toggle";
+import { InstallApp } from "./install-app";
 
 type Props = {
   open: boolean;
@@ -102,6 +102,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
                 </svg>
                 Book Your Detailing Slot
               </Link>
+              <InstallApp variant="block" className="mt-3" onDone={onClose} />
             </div>
           </nav>
 
@@ -127,7 +128,6 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               >
                 WhatsApp
               </a>
-              <ThemeToggle />
             </div>
           </m.div>
         </m.div>

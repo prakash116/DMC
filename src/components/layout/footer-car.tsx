@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useTheme } from "next-themes";
 import * as THREE from "three";
 
 /*
@@ -13,7 +12,6 @@ import * as THREE from "three";
 
 type Palette = { body: string; glass: string; wheel: string; grid: string; light: string; tail: string; fill: string };
 const LIGHT: Palette = { body: "#722F37", glass: "#8a5a5f", wheel: "#5e4b45", grid: "#722F37", light: "#c8783f", tail: "#d63447", fill: "#722F37" };
-const DARK: Palette = { body: "#e8dcc6", glass: "#b7a89a", wheel: "#b7a89a", grid: "#b7a89a", light: "#e9a970", tail: "#ff4b5e", fill: "#e8dcc6" };
 
 /* SVG profile coords (viewBox 240×80, ground ≈ y70) → world units, car ≈ 8 long */
 const P = (sx: number, sy: number) => new THREE.Vector2((sx - 120) / 28, (70 - sy) / 28);
@@ -284,8 +282,7 @@ export function FooterCar({ reducedMotion = false }: { reducedMotion?: boolean }
   const wrap = useRef<HTMLDivElement>(null);
   const pointer = useRef({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const pal = resolvedTheme === "dark" ? DARK : LIGHT;
+  const pal = LIGHT;
 
   useEffect(() => {
     const el = wrap.current;

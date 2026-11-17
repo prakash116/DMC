@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Dark mode is class-driven (next-themes sets `class="dark"` on <html>) */
+/* Site is light-only. `dark:` stays class-scoped (no .dark class is ever set) so it never follows the OS theme */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ---------- Brand palette (three fixed colours) ---------- */
